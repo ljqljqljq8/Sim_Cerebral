@@ -1,0 +1,11 @@
+{
+  "raw_stl": "data_raw/luisi2024/extracted/CerebrovascularModel.stl",
+  "mode": "closed_surface_existing_caps",
+  "boundary_edge_count_before": 0,
+  "points": 144938,
+  "cells": 289876,
+  "cap_count": 10,
+  "capped_surface": "cases/cow_luisi_mvp/geometry/surface_capped_cm.vtp",
+  "cap_metadata": "cases/cow_luisi_mvp/geometry/cap_metadata.csv",
+  "faces_pre_mesh": "cases/cow_luisi_mvp/geometry/faces_pre_mesh"
+}

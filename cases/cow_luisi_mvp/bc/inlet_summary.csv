@@ -1,0 +1,5 @@
+name,mean_flow_mL_min,mean_flow_cm3_s,diameter_mm_simulated_ultrasound,cross_section_area_cm2,mean_velocity_cm_s,flow_file
+LICA,249.5,4.158333333333333,6.8,0.3631681107549802,11.450160986570898,cases/cow_luisi_mvp/bc/LICA.flow
+RICA,241.0,4.016666666666667,6.9,0.3739280655935252,10.741816504977042,cases/cow_luisi_mvp/bc/RICA.flow
+LVA,87.8,1.4633333333333334,3.4,0.09079202768874504,16.117420995926654,cases/cow_luisi_mvp/bc/LVA.flow
+RVA,80.9,1.3483333333333334,3.3,0.08552985999398213,15.764474926396488,cases/cow_luisi_mvp/bc/RVA.flow

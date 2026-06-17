@@ -1,0 +1,30 @@
+mmhg_to_dyn_cm2: 1333.22
+proximal_resistance_fraction: 0.10
+initial_pressure_mmhg: 87.0
+distal_pressure_mmhg: 0.0
+
+outlets:
+  LACA:
+    group: ACA
+    total_resistance_mmhg_s_ml: 53.90
+    capacitance_ml_mmhg: 0.0037
+  RACA:
+    group: ACA
+    total_resistance_mmhg_s_ml: 53.90
+    capacitance_ml_mmhg: 0.0037
+  LMCA:
+    group: MCA
+    total_resistance_mmhg_s_ml: 30.49
+    capacitance_ml_mmhg: 0.0065
+  RMCA:
+    group: MCA
+    total_resistance_mmhg_s_ml: 30.49
+    capacitance_ml_mmhg: 0.0065
+  LPCA:
+    group: PCA
+    total_resistance_mmhg_s_ml: 83.53
+    capacitance_ml_mmhg: 0.0024
+  RPCA:
+    group: PCA
+    total_resistance_mmhg_s_ml: 83.53
+    capacitance_ml_mmhg: 0.0024

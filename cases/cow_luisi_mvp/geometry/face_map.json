@@ -1,0 +1,199 @@
+{
+  "LICA": {
+    "type": "inlet",
+    "cap_id": 1,
+    "sv_face_id": 2,
+    "area_mm2_expected": 72.0,
+    "area_mm2_measured": 71.9243033564544,
+    "area_error_pct": -0.10513422714666376,
+    "centroid_cm": [
+      -1.2032167391045965,
+      -1.4684603552887403,
+      -13.082000732421877
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/cap_01.vtp"
+  },
+  "RICA": {
+    "type": "inlet",
+    "cap_id": 4,
+    "sv_face_id": 5,
+    "area_mm2_expected": 71.9,
+    "area_mm2_measured": 71.94021437049287,
+    "area_error_pct": 0.055930974259891394,
+    "centroid_cm": [
+      2.354124774249272,
+      -1.6246416235338696,
+      -13.082000732421877
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/cap_04.vtp"
+  },
+  "LVA": {
+    "type": "inlet",
+    "cap_id": 2,
+    "sv_face_id": 3,
+    "area_mm2_expected": 17.7,
+    "area_mm2_measured": 17.689517351704723,
+    "area_error_pct": -0.0592240016682298,
+    "centroid_cm": [
+      -1.051563105923068,
+      0.3420926602818887,
+      -13.082000732421877
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/cap_02.vtp"
+  },
+  "RVA": {
+    "type": "inlet",
+    "cap_id": 3,
+    "sv_face_id": 4,
+    "area_mm2_expected": 17.7,
+    "area_mm2_measured": 17.74956347062772,
+    "area_error_pct": 0.28001960806621934,
+    "centroid_cm": [
+      2.1959368668071426,
+      0.2772805556432525,
+      -13.082000732421877
+    ],
+    "normal": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/cap_03.vtp"
+  },
+  "LPCA": {
+    "type": "outlet",
+    "cap_id": 7,
+    "sv_face_id": 8,
+    "area_mm2_expected": 17.7,
+    "area_mm2_measured": 17.589551227234203,
+    "area_error_pct": -0.6240043659084527,
+    "centroid_cm": [
+      -2.614948169520644,
+      1.1817283505299052,
+      8.098940839923797
+    ],
+    "normal": [
+      -0.0017322214121046,
+      -0.002659901337315,
+      0.9999949621542376
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/cap_07.vtp"
+  },
+  "RPCA": {
+    "type": "outlet",
+    "cap_id": 10,
+    "sv_face_id": 11,
+    "area_mm2_expected": 17.7,
+    "area_mm2_measured": 17.529699611955447,
+    "area_error_pct": -0.9621490849974699,
+    "centroid_cm": [
+      2.54739959193211,
+      1.23641705419503,
+      8.099284078560624
+    ],
+    "normal": [
+      -0.0039057123705838,
+      0.0020185980309363,
+      0.9999903352897304
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/cap_10.vtp"
+  },
+  "LMCA": {
+    "type": "outlet",
+    "cap_id": 9,
+    "sv_face_id": 10,
+    "area_mm2_expected": 17.7,
+    "area_mm2_measured": 17.72142771223941,
+    "area_error_pct": 0.12106052112661884,
+    "centroid_cm": [
+      -2.472757145143905,
+      -2.9308554739322306,
+      8.099224479243441
+    ],
+    "normal": [
+      0.0013634667343174,
+      -0.0034347200848113,
+      0.9999931718048896
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/cap_09.vtp"
+  },
+  "LACA": {
+    "type": "outlet",
+    "cap_id": 6,
+    "sv_face_id": 7,
+    "area_mm2_expected": 17.8,
+    "area_mm2_measured": 17.533011782638628,
+    "area_error_pct": -1.4999338054009712,
+    "centroid_cm": [
+      0.795310524053741,
+      -2.716804567972819,
+      8.098861011705901
+    ],
+    "normal": [
+      0.0024630698569424,
+      -0.0013274530868474,
+      0.9999960855699298
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/cap_06.vtp"
+  },
+  "RACA": {
+    "type": "outlet",
+    "cap_id": 8,
+    "sv_face_id": 9,
+    "area_mm2_expected": 17.9,
+    "area_mm2_measured": 17.52308791083357,
+    "area_error_pct": -2.105654129421385,
+    "centroid_cm": [
+      2.1950311566962575,
+      -2.7208140951688176,
+      8.098941627877657
+    ],
+    "normal": [
+      0.0019635371692327,
+      -0.001543590634855,
+      0.9999968809200044
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/cap_08.vtp"
+  },
+  "RMCA": {
+    "type": "outlet",
+    "cap_id": 5,
+    "sv_face_id": 6,
+    "area_mm2_expected": 17.9,
+    "area_mm2_measured": 17.627197633518545,
+    "area_error_pct": -1.5240355669354952,
+    "centroid_cm": [
+      4.04643418653956,
+      -2.942403599001327,
+      8.098778677886386
+    ],
+    "normal": [
+      -0.0080875756867712,
+      -0.0056405249425235,
+      0.9999513866173112
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/cap_05.vtp"
+  },
+  "wall": {
+    "type": "wall",
+    "sv_face_ids": [
+      1
+    ],
+    "pre_mesh_face_file": "cases/cow_luisi_mvp/geometry/faces_pre_mesh/wall.vtp"
+  }
+}

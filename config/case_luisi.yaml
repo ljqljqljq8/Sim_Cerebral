@@ -1,0 +1,65 @@
+case_name: cow_luisi_mvp
+source_model: Luisi_2024_SciRep
+
+units:
+  raw_geometry: mm
+  solver_geometry: cm
+  pressure: dyn_per_cm2
+  flow: cm3_per_s
+  resistance: dyn_s_per_cm5
+  capacitance: cm5_per_dyn
+
+blood:
+  density_g_per_cm3: 1.06
+  viscosity_g_per_cm_s: 0.04
+
+simulation:
+  cardiac_period_s: 1.0
+  dt_s: 0.001
+  n_cycles: 3
+  save_every_n_steps: 10
+  evaluate_cycle: last
+
+geometry:
+  raw_stl: data_raw/luisi2024/extracted/CerebrovascularModel.stl
+  scale_mm_to_cm: 0.1
+  closed_cap_feature_angle_deg: 25.0
+  min_cap_area_mm2: 5.0
+  expected_cap_count: 10
+  capped_surface: cases/cow_luisi_mvp/geometry/surface_capped_cm.vtp
+
+face_assignment:
+  strategy: luisi2024_coordinate_heuristic
+  left_right_axis: x
+  lower_axis_value_is_left: true
+  inlet_plane: low_z
+  outlet_plane: high_z
+  pca_group: high_y
+
+mesh:
+  boundary_face_angle_deg: 25.0
+  global_edge_size_cm_smoke: 0.06
+  global_edge_size_cm_production: 0.035
+  active_global_edge_size_cm: 0.06
+  cap_local_edge_size_cm: 0.04
+  quality_ratio: 1.4
+  optimization: 3
+  use_mmg: false
+  boundary_layer:
+    enabled: false
+    number_of_layers: 3
+    edge_size_fraction: 0.35
+    layer_decreasing_ratio: 0.7
+    constant_thickness: false
+
+faces:
+  inlets: [LICA, RICA, LVA, RVA]
+  outlets: [LACA, RACA, LMCA, RMCA, LPCA, RPCA]
+  wall: wall
+
+runtime:
+  simvascular_cli: /Applications/SimVascular.app/Contents/Resources/simvascular
+  svpython_command: null
+  svmultiphysics_command: /usr/local/sv/svMultiPhysics/2025-06-06/bin/svmultiphysics
+  mpi_command: mpiexec
+  mpi_np: 4

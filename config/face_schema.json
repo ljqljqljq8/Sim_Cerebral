@@ -1,0 +1,17 @@
+{
+  "inlets": ["LICA", "RICA", "LVA", "RVA"],
+  "outlets": ["LACA", "RACA", "LMCA", "RMCA", "LPCA", "RPCA"],
+  "wall": "wall",
+  "expected_area_mm2": {
+    "LICA": 72.0,
+    "RICA": 71.9,
+    "LVA": 17.7,
+    "RVA": 17.7,
+    "LPCA": 17.7,
+    "RPCA": 17.7,
+    "LMCA": 17.7,
+    "RMCA": 17.9,
+    "LACA": 17.8,
+    "RACA": 17.9
+  }
+}

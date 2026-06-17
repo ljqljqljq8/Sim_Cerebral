@@ -1,0 +1,194 @@
+<?xml version="1.0" ?>
+<svMultiPhysicsFile version="0.1">
+  <GeneralSimulationParameters>
+    <Continue_previous_simulation> false </Continue_previous_simulation>
+    <Number_of_spatial_dimensions> 3 </Number_of_spatial_dimensions>
+    <Number_of_time_steps> 3000 </Number_of_time_steps>
+    <Time_step_size> 0.001 </Time_step_size>
+    <Spectral_radius_of_infinite_time_step> 0.50 </Spectral_radius_of_infinite_time_step>
+    <Searched_file_name_to_trigger_stop> STOP_SIM </Searched_file_name_to_trigger_stop>
+    <Save_results_to_VTK_format> 1 </Save_results_to_VTK_format>
+    <Name_prefix_of_saved_VTK_files> result </Name_prefix_of_saved_VTK_files>
+    <Increment_in_saving_VTK_files> 20 </Increment_in_saving_VTK_files>
+    <Start_saving_after_time_step> 1 </Start_saving_after_time_step>
+    <Increment_in_saving_restart_files> 100 </Increment_in_saving_restart_files>
+    <Convert_BIN_to_VTK_format> 0 </Convert_BIN_to_VTK_format>
+    <Verbose> 1 </Verbose>
+    <Warning> 0 </Warning>
+    <Debug> 0 </Debug>
+  </GeneralSimulationParameters>
+  <Add_mesh name="msh">
+    <Mesh_file_path> ../mesh/mesh-complete.mesh.vtu </Mesh_file_path>
+    <Add_face name="LICA">
+      <Face_file_path> ../mesh/mesh-surfaces/LICA.vtp </Face_file_path>
+    </Add_face>
+    <Add_face name="RICA">
+      <Face_file_path> ../mesh/mesh-surfaces/RICA.vtp </Face_file_path>
+    </Add_face>
+    <Add_face name="LVA">
+      <Face_file_path> ../mesh/mesh-surfaces/LVA.vtp </Face_file_path>
+    </Add_face>
+    <Add_face name="RVA">
+      <Face_file_path> ../mesh/mesh-surfaces/RVA.vtp </Face_file_path>
+    </Add_face>
+    <Add_face name="LACA">
+      <Face_file_path> ../mesh/mesh-surfaces/LACA.vtp </Face_file_path>
+    </Add_face>
+    <Add_face name="RACA">
+      <Face_file_path> ../mesh/mesh-surfaces/RACA.vtp </Face_file_path>
+    </Add_face>
+    <Add_face name="LMCA">
+      <Face_file_path> ../mesh/mesh-surfaces/LMCA.vtp </Face_file_path>
+    </Add_face>
+    <Add_face name="RMCA">
+      <Face_file_path> ../mesh/mesh-surfaces/RMCA.vtp </Face_file_path>
+    </Add_face>
+    <Add_face name="LPCA">
+      <Face_file_path> ../mesh/mesh-surfaces/LPCA.vtp </Face_file_path>
+    </Add_face>
+    <Add_face name="RPCA">
+      <Face_file_path> ../mesh/mesh-surfaces/RPCA.vtp </Face_file_path>
+    </Add_face>
+    <Add_face name="wall">
+      <Face_file_path> ../mesh/mesh-surfaces/wall.vtp </Face_file_path>
+    </Add_face>
+  </Add_mesh>
+  <Add_equation type="fluid">
+    <Coupled> true </Coupled>
+    <Min_iterations> 3 </Min_iterations>
+    <Max_iterations> 12 </Max_iterations>
+    <Tolerance> 1e-11 </Tolerance>
+    <Backflow_stabilization_coefficient> 0.2 </Backflow_stabilization_coefficient>
+    <Density> 1.06 </Density>
+    <Viscosity model="Constant">
+      <Value> 0.04 </Value>
+    </Viscosity>
+    <Output type="Spatial">
+      <Velocity> true </Velocity>
+      <Pressure> true </Pressure>
+      <Traction> true </Traction>
+      <Vorticity> true </Vorticity>
+      <Divergence> true </Divergence>
+      <WSS> true </WSS>
+    </Output>
+    <Output type="B_INT">
+      <Pressure> true </Pressure>
+      <Velocity> true </Velocity>
+    </Output>
+    <Output type="V_INT">
+      <Pressure> true </Pressure>
+    </Output>
+    <LS type="NS">
+      <Linear_algebra type="fsils">
+        <Preconditioner> fsils </Preconditioner>
+      </Linear_algebra>
+      <Max_iterations> 30 </Max_iterations>
+      <NS_GM_max_iterations> 25 </NS_GM_max_iterations>
+      <NS_CG_max_iterations> 800 </NS_CG_max_iterations>
+      <Tolerance> 1e-4 </Tolerance>
+      <NS_GM_tolerance> 1e-4 </NS_GM_tolerance>
+      <NS_CG_tolerance> 1e-4 </NS_CG_tolerance>
+      <Absolute_tolerance> 1e-17 </Absolute_tolerance>
+      <Krylov_space_dimension> 300 </Krylov_space_dimension>
+    </LS>
+    <Add_BC name="LICA">
+      <Type> Dir </Type>
+      <Time_dependence> Unsteady </Time_dependence>
+      <Temporal_values_file_path> ../bc/LICA.flow </Temporal_values_file_path>
+      <Profile> Parabolic </Profile>
+      <Impose_flux> true </Impose_flux>
+    </Add_BC>
+    <Add_BC name="RICA">
+      <Type> Dir </Type>
+      <Time_dependence> Unsteady </Time_dependence>
+      <Temporal_values_file_path> ../bc/RICA.flow </Temporal_values_file_path>
+      <Profile> Parabolic </Profile>
+      <Impose_flux> true </Impose_flux>
+    </Add_BC>
+    <Add_BC name="LVA">
+      <Type> Dir </Type>
+      <Time_dependence> Unsteady </Time_dependence>
+      <Temporal_values_file_path> ../bc/LVA.flow </Temporal_values_file_path>
+      <Profile> Parabolic </Profile>
+      <Impose_flux> true </Impose_flux>
+    </Add_BC>
+    <Add_BC name="RVA">
+      <Type> Dir </Type>
+      <Time_dependence> Unsteady </Time_dependence>
+      <Temporal_values_file_path> ../bc/RVA.flow </Temporal_values_file_path>
+      <Profile> Parabolic </Profile>
+      <Impose_flux> true </Impose_flux>
+    </Add_BC>
+    <Add_BC name="LACA">
+      <Type> Neu </Type>
+      <Time_dependence> RCR </Time_dependence>
+      <RCR_values>
+        <Capacitance> 2.7752358951e-06 </Capacitance>
+        <Distal_resistance> 6.4674502200e+04 </Distal_resistance>
+        <Proximal_resistance> 7.1860558000e+03 </Proximal_resistance>
+        <Distal_pressure> 0.0000000000e+00 </Distal_pressure>
+        <Initial_pressure> 1.1599014000e+05 </Initial_pressure>
+      </RCR_values>
+    </Add_BC>
+    <Add_BC name="RACA">
+      <Type> Neu </Type>
+      <Time_dependence> RCR </Time_dependence>
+      <RCR_values>
+        <Capacitance> 2.7752358951e-06 </Capacitance>
+        <Distal_resistance> 6.4674502200e+04 </Distal_resistance>
+        <Proximal_resistance> 7.1860558000e+03 </Proximal_resistance>
+        <Distal_pressure> 0.0000000000e+00 </Distal_pressure>
+        <Initial_pressure> 1.1599014000e+05 </Initial_pressure>
+      </RCR_values>
+    </Add_BC>
+    <Add_BC name="LMCA">
+      <Type> Neu </Type>
+      <Time_dependence> RCR </Time_dependence>
+      <RCR_values>
+        <Capacitance> 4.8754144102e-06 </Capacitance>
+        <Distal_resistance> 3.6584890020e+04 </Distal_resistance>
+        <Proximal_resistance> 4.0649877800e+03 </Proximal_resistance>
+        <Distal_pressure> 0.0000000000e+00 </Distal_pressure>
+        <Initial_pressure> 1.1599014000e+05 </Initial_pressure>
+      </RCR_values>
+    </Add_BC>
+    <Add_BC name="RMCA">
+      <Type> Neu </Type>
+      <Time_dependence> RCR </Time_dependence>
+      <RCR_values>
+        <Capacitance> 4.8754144102e-06 </Capacitance>
+        <Distal_resistance> 3.6584890020e+04 </Distal_resistance>
+        <Proximal_resistance> 4.0649877800e+03 </Proximal_resistance>
+        <Distal_pressure> 0.0000000000e+00 </Distal_pressure>
+        <Initial_pressure> 1.1599014000e+05 </Initial_pressure>
+      </RCR_values>
+    </Add_BC>
+    <Add_BC name="LPCA">
+      <Type> Neu </Type>
+      <Time_dependence> RCR </Time_dependence>
+      <RCR_values>
+        <Capacitance> 1.8001530130e-06 </Capacitance>
+        <Distal_resistance> 1.0022747994e+05 </Distal_resistance>
+        <Proximal_resistance> 1.1136386660e+04 </Proximal_resistance>
+        <Distal_pressure> 0.0000000000e+00 </Distal_pressure>
+        <Initial_pressure> 1.1599014000e+05 </Initial_pressure>
+      </RCR_values>
+    </Add_BC>
+    <Add_BC name="RPCA">
+      <Type> Neu </Type>
+      <Time_dependence> RCR </Time_dependence>
+      <RCR_values>
+        <Capacitance> 1.8001530130e-06 </Capacitance>
+        <Distal_resistance> 1.0022747994e+05 </Distal_resistance>
+        <Proximal_resistance> 1.1136386660e+04 </Proximal_resistance>
+        <Distal_pressure> 0.0000000000e+00 </Distal_pressure>
+        <Initial_pressure> 1.1599014000e+05 </Initial_pressure>
+      </RCR_values>
+    </Add_BC>
+    <Add_BC name="wall">
+      <Type> Dir </Type>
+      <Time_dependence> Steady </Time_dependence>
+      <Value> 0.0 </Value>
+    </Add_BC>
+  </Add_equation>
+</svMultiPhysicsFile>

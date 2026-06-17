@@ -1,0 +1,10 @@
+numpy==1.26.4
+pandas==2.2.3
+pyyaml==6.0.2
+vtk==9.3.1
+pyvista==0.46.5
+meshio==5.3.5
+matplotlib==3.9.4
+scipy==1.11.4
+lxml==5.4.0
+tetgen==0.6.4
