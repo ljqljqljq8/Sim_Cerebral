@@ -195,6 +195,24 @@ RICA 超声速度
 -> 选代表性工况做高保真 SimVascular 网格验证
 ```
 
+快速筛查命令：
+
+```bash
+python scripts/10_quick_rica_sensitivity.py
+```
+
+该脚本不会启动 svMultiPhysics，而是读取当前入口波形、出口 RCR 阻力和出口 cap
+面积，用归一化出口导纳快速估计不同 RICA 输入倍率下的出口流量和出口平均速度。
+输出位于：
+
+```text
+cases/cow_luisi_mvp/results/quick_rica_sensitivity/
+```
+
+这个结果适合快速判断趋势，不等价于三维 Navier-Stokes 求解。若要得到 Willis 环
+内部 A1、ACom、PCom、P1、M1 等具体血管段的速度，仍需要运行 svMultiPhysics
+并增加截面采样后处理。
+
 ## 二、复现部分
 
 ### 0. 最短一键复现路径
