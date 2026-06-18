@@ -15,6 +15,9 @@ def main() -> int:
     parser.add_argument("--cycles", type=float)
     parser.add_argument("--save-increment", type=int, default=20)
     parser.add_argument("--restart-increment", type=int)
+    parser.add_argument("--nonlinear-min-iterations", type=int)
+    parser.add_argument("--nonlinear-max-iterations", type=int)
+    parser.add_argument("--nonlinear-tolerance")
     parser.add_argument("--resume", action="store_true", help="Run solver_resume.xml from an existing stFile_last.bin.")
     parser.add_argument("--allow-missing-restart", action="store_true")
     parser.add_argument("--production", action="store_true")
@@ -33,6 +36,12 @@ def main() -> int:
     ]
     if args.restart_increment is not None:
         xml_base += ["--restart-increment", str(args.restart_increment)]
+    if args.nonlinear_min_iterations is not None:
+        xml_base += ["--nonlinear-min-iterations", str(args.nonlinear_min_iterations)]
+    if args.nonlinear_max_iterations is not None:
+        xml_base += ["--nonlinear-max-iterations", str(args.nonlinear_max_iterations)]
+    if args.nonlinear_tolerance is not None:
+        xml_base += ["--nonlinear-tolerance", str(args.nonlinear_tolerance)]
     if args.cycles is not None:
         xml_base += ["--cycles", str(args.cycles)]
     else:

@@ -304,6 +304,29 @@ solver:
 
 当前模型约 176 万四面体，明显大于之前 CoW_Automation 中约 18 万四面体的测试模型。建议先跑短步数 smoke test，再跑完整周期。
 
+如果需要在命令行临时调整每个 time step 的非线性迭代次数，可以直接传参，不需要手工改 XML：
+
+```bash
+python scripts/auto_solve.py \
+  --n-steps 20 \
+  --nonlinear-max-iterations 6
+```
+
+从 restart 进入更严格求解时可以使用：
+
+```bash
+python scripts/auto_solve.py \
+  --resume \
+  --run \
+  --np 8 \
+  --n-steps 3000 \
+  --save-increment 20 \
+  --restart-increment 50 \
+  --nonlinear-min-iterations 3 \
+  --nonlinear-max-iterations 6 \
+  --nonlinear-tolerance 1e-4
+```
+
 ## 6. 新电脑复现：需要安装什么
 
 ### 6.1 必需软件

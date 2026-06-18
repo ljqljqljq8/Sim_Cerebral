@@ -46,6 +46,9 @@ def main() -> int:
     parser.add_argument("--save-increment", type=int)
     parser.add_argument("--restart-increment", type=int)
     parser.add_argument("--start-saving-after", type=int)
+    parser.add_argument("--nonlinear-min-iterations", type=int)
+    parser.add_argument("--nonlinear-max-iterations", type=int)
+    parser.add_argument("--nonlinear-tolerance")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--production", action="store_true")
     parser.add_argument("--out", default="simulation_truth/solver.xml")
@@ -113,9 +116,22 @@ def main() -> int:
 
     equation = ET.SubElement(root, "Add_equation", type="fluid")
     ET.SubElement(equation, "Coupled").text = "true"
-    ET.SubElement(equation, "Min_iterations").text = str(solver.get("nonlinear_min_iterations", 2))
-    ET.SubElement(equation, "Max_iterations").text = str(solver.get("nonlinear_max_iterations", 3))
-    ET.SubElement(equation, "Tolerance").text = str(solver.get("nonlinear_tolerance", "1e-3"))
+    nonlinear_min = args.nonlinear_min_iterations
+    if nonlinear_min is None:
+        nonlinear_min = int(solver.get("nonlinear_min_iterations", 2))
+    nonlinear_max = args.nonlinear_max_iterations
+    if nonlinear_max is None:
+        nonlinear_max = int(solver.get("nonlinear_max_iterations", 3))
+    if nonlinear_max < nonlinear_min:
+        raise SystemExit(
+            f"nonlinear max iterations ({nonlinear_max}) must be >= min iterations ({nonlinear_min})"
+        )
+    nonlinear_tol = args.nonlinear_tolerance
+    if nonlinear_tol is None:
+        nonlinear_tol = str(solver.get("nonlinear_tolerance", "1e-3"))
+    ET.SubElement(equation, "Min_iterations").text = str(nonlinear_min)
+    ET.SubElement(equation, "Max_iterations").text = str(nonlinear_max)
+    ET.SubElement(equation, "Tolerance").text = str(nonlinear_tol)
     ET.SubElement(equation, "Backflow_stabilization_coefficient").text = str(
         solver.get("backflow_stabilization_coefficient", 0.2)
     )

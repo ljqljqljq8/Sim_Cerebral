@@ -164,3 +164,18 @@ case:
 
 These are intentionally solver-stability settings. They do not change the sv50
 geometry or visible-STA baseline flow split.
+
+You can override the nonlinear iteration settings from the one-command launcher:
+
+```bash
+python scripts/auto_solve.py --n-steps 20 --nonlinear-max-iterations 6
+```
+
+For a stricter restart run after the initial startup:
+
+```bash
+python scripts/auto_solve.py --resume --run --np 8 --n-steps 3000 \
+  --save-increment 20 --restart-increment 50 \
+  --nonlinear-min-iterations 3 --nonlinear-max-iterations 6 \
+  --nonlinear-tolerance 1e-4
+```
