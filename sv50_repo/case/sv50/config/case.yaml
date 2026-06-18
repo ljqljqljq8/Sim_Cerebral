@@ -3,7 +3,8 @@ case:
   model: cfd_v5_sv50
   unit: cm
   notes:
-    - Organized from cases/cfd_v5/sv50.
+    - Physiologic visible-STA baseline without changing geometry.
+    - CCA inflow includes only the explicit visible STA/TFA branch loss; this is not a full ECA-bed model.
     - Boundary names are short aliases; original names are preserved in face_labels.json.
 
 paths:
@@ -27,7 +28,11 @@ solver:
   cardiac_cycle_s: 0.8
   cycles_test: 2
   cycles_production: 5
-  save_increment: 100
+  save_increment: 20
+  restart_increment: 50
+  stop_file: STOP_SIM_SV50
+  stop_file_resume: STOP_SIM_SV50_RESUME
+  boundary_integral_output: true
   inlet_profile: Parabolic
   outlet_bc: RCR
   mpi_np_default: 8

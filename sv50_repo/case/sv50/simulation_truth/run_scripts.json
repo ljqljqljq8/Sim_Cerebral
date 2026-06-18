@@ -1,0 +1,7 @@
+{
+  "run_sh": "case/sv50/simulation_truth/run.sh",
+  "resume_sh": "case/sv50/simulation_truth/resume.sh",
+  "default_mpi_np": 8,
+  "run_command": "cd case/sv50/simulation_truth && MPI_NP=8 bash run.sh",
+  "resume_command": "cd case/sv50/simulation_truth && MPI_NP=8 bash resume.sh"
+}

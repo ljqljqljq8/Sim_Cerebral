@@ -44,6 +44,9 @@ def main() -> int:
     parser.add_argument("--n-steps", type=int, default=20)
     parser.add_argument("--cycles", type=float)
     parser.add_argument("--save-increment", type=int)
+    parser.add_argument("--restart-increment", type=int)
+    parser.add_argument("--start-saving-after", type=int)
+    parser.add_argument("--resume", action="store_true")
     parser.add_argument("--production", action="store_true")
     parser.add_argument("--out", default="simulation_truth/solver.xml")
     args = parser.parse_args()
@@ -68,21 +71,28 @@ def main() -> int:
         n_steps = int(args.n_steps)
     save_inc = int(args.save_increment if args.save_increment is not None else solver.get("save_increment", 100))
     save_inc = max(1, min(save_inc, n_steps))
+    restart_inc = int(args.restart_increment if args.restart_increment is not None else solver.get("restart_increment", save_inc))
+    restart_inc = max(1, restart_inc)
+    start_default = solver.get("start_saving_after_step", save_inc)
+    start_save = int(args.start_saving_after if args.start_saving_after is not None else start_default)
+    start_save = max(1, min(start_save, n_steps))
+    stop_file_key = "stop_file_resume" if args.resume else "stop_file"
+    stop_file = str(solver.get(stop_file_key, "STOP_SIM_SV50_RESUME" if args.resume else "STOP_SIM_SV50"))
 
     root = ET.Element("svMultiPhysicsFile", version="0.1")
     general = ET.SubElement(root, "GeneralSimulationParameters")
     general_values = {
-        "Continue_previous_simulation": "0",
+        "Continue_previous_simulation": "true" if args.resume else "false",
         "Number_of_spatial_dimensions": "3",
         "Number_of_time_steps": str(n_steps),
         "Time_step_size": f"{dt:.8f}",
         "Spectral_radius_of_infinite_time_step": "0.50",
-        "Searched_file_name_to_trigger_stop": "STOP_SIM",
+        "Searched_file_name_to_trigger_stop": stop_file,
         "Save_results_to_VTK_format": "1",
         "Name_prefix_of_saved_VTK_files": "result",
         "Increment_in_saving_VTK_files": str(save_inc),
-        "Start_saving_after_time_step": "1",
-        "Increment_in_saving_restart_files": str(save_inc),
+        "Start_saving_after_time_step": str(start_save),
+        "Increment_in_saving_restart_files": str(restart_inc),
         "Convert_BIN_to_VTK_format": "0",
         "Verbose": "1",
         "Warning": "0",
@@ -114,6 +124,12 @@ def main() -> int:
     output = ET.SubElement(equation, "Output", type="Spatial")
     for name in ("Velocity", "Pressure", "Traction", "Vorticity", "Divergence", "WSS"):
         ET.SubElement(output, name).text = "true"
+    if bool(solver.get("boundary_integral_output", True)):
+        boundary_output = ET.SubElement(equation, "Output", type="B_INT")
+        ET.SubElement(boundary_output, "Pressure").text = "true"
+        ET.SubElement(boundary_output, "Velocity").text = "true"
+        volume_output = ET.SubElement(equation, "Output", type="V_INT")
+        ET.SubElement(volume_output, "Pressure").text = "true"
 
     linear_solver = ET.SubElement(equation, "LS", type="NS")
     algebra = ET.SubElement(linear_solver, "Linear_algebra", type="fsils")
@@ -162,6 +178,9 @@ def main() -> int:
     ET.SubElement(notes, "BoundaryNames").text = "short_aliases"
     ET.SubElement(notes, "FaceCount").text = str(len(faces))
     ET.SubElement(notes, "NumberOfTimeSteps").text = str(n_steps)
+    ET.SubElement(notes, "Resume").text = "true" if args.resume else "false"
+    ET.SubElement(notes, "SaveIncrement").text = str(save_inc)
+    ET.SubElement(notes, "RestartIncrement").text = str(restart_inc)
     indent(root)
     out.parent.mkdir(parents=True, exist_ok=True)
     ET.ElementTree(root).write(out, encoding="utf-8", xml_declaration=True)

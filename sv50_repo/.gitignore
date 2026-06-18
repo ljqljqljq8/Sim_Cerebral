@@ -4,7 +4,9 @@ __pycache__/
 case/sv50/simulation_truth/result_*.vtu
 case/sv50/simulation_truth/*.run.log
 case/sv50/simulation_truth/1-procs/
+case/sv50/simulation_truth/*-procs/
 case/sv50/simulation_truth/auto_status.json
 case/sv50/simulation_truth/solver_status.json
 case/sv50/simulation_truth/STOP_SIM
+case/sv50/simulation_truth/STOP_SIM*
 case/sv50/simulation_truth/restart*

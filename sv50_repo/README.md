@@ -13,7 +13,9 @@ organizes a clean solve case under `case/sv50`.
 - `case/sv50/geometry/terminal_planes.json`: terminal planes with short names.
 - `case/sv50/source`: vendored copy of the source `cfd_v5/sv50` files.
 - `configs/bc.yaml`: inlet flows and outlet RCR target flow split.
-- `scripts/auto_solve.py`: one-command prepare, BC, XML, and solver dry-run/run.
+- `configs/bc_visible_sta_baseline.yaml`: explicit copy of the default visible-STA baseline.
+- `docs/visible_sta_baseline_bc.md`: baseline BC interpretation and limitations.
+- `scripts/auto_solve.py`: one-command prepare, BC, XML, restart XML, launch scripts, and solver dry-run/run/resume.
 
 ## Boundary Names
 
@@ -62,6 +64,9 @@ This prepares the case, writes:
 - `case/sv50/simulation_truth/bc_summary.json`
 - `case/sv50/simulation_truth/outlet_rcr.csv`
 - `case/sv50/simulation_truth/solver.xml`
+- `case/sv50/simulation_truth/solver_resume.xml`
+- `case/sv50/simulation_truth/run.sh`
+- `case/sv50/simulation_truth/resume.sh`
 
 and checks whether the solver command can be resolved.
 
@@ -83,7 +88,7 @@ SV_MULTIPHYSICS_BIN=/path/to/svmultiphysics MPIEXEC=/path/to/mpiexec python scri
 
 ```bash
 cd sv50_repo
-python scripts/auto_solve.py --run --np 8 --cycles 2 --save-increment 100
+python scripts/auto_solve.py --run --np 8 --cycles 2 --save-increment 20 --restart-increment 50
 ```
 
 Production-like:
@@ -93,14 +98,55 @@ cd sv50_repo
 python scripts/auto_solve.py --run --np 8 --production
 ```
 
+## Restart / Resume
+
+The sv50 launcher is aligned with the CoW restart pattern:
+
+- initial run uses `solver.xml`
+- resume run uses `solver_resume.xml`
+- restart state is expected under `case/sv50/simulation_truth/<MPI_NP>-procs/stFile_last.bin`
+- resume should use the same `--np` / `MPI_NP` as the original run
+
+Recommended production cadence:
+
+```bash
+cd sv50_repo
+python scripts/auto_solve.py --run --np 8 --cycles 3 --save-increment 20 --restart-increment 50
+```
+
+Resume after interruption:
+
+```bash
+cd sv50_repo
+python scripts/auto_solve.py --resume --run --np 8 --cycles 3 --save-increment 20 --restart-increment 50
+```
+
+Equivalent CoW-style shell launchers are generated in `case/sv50/simulation_truth`:
+
+```bash
+cd case/sv50/simulation_truth
+MPI_NP=8 bash run.sh
+MPI_NP=8 bash resume.sh
+```
+
 ## Current BC Assumption
 
-The default `configs/bc.yaml` uses 620 ml/min total inflow:
+The default `configs/bc.yaml` is the visible-STA baseline from the recommended
+BC package. It uses 710 ml/min total inflow:
 
-- left/right CCA: 260 ml/min each
-- left/right VA: 50 ml/min each
+- left/right CCA: 270 ml/min each
+- left/right VA: 85 ml/min each
 
-Outlets are assigned target mean flows summing to 620 ml/min, with dominant
-MCA flow, moderate ACA/PCA flow, and small external/STA branch flows. The RCR
-table is generated from these target flows, a mean pressure target of 90 mmHg,
-and distal pressure of 10 mmHg.
+Outlets are assigned target mean flows summing to 710 ml/min:
+
+- brain outlets: 670 ml/min total
+- explicit visible STA/TFA outlets: 40 ml/min total
+
+This baseline does not add hidden ECA bed outlets. Therefore `L_CCA_IN` and
+`R_CCA_IN` should be interpreted as ICA/CoW inflow plus the currently explicit
+STA/TFA branch loss, not as full physiologic CCA inflow including maxillary,
+facial, occipital, lingual, and other omitted ECA beds.
+
+The RCR table is generated from these target flows, a mean pressure target of
+90 mmHg, distal pressure of 10 mmHg, proximal resistance fraction of 0.05, and
+total compliance of `1.9e-5 cm3/barye`.

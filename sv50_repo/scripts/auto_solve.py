@@ -13,7 +13,10 @@ def main() -> int:
     parser.add_argument("--np", type=int, default=1)
     parser.add_argument("--n-steps", type=int, default=20)
     parser.add_argument("--cycles", type=float)
-    parser.add_argument("--save-increment", type=int, default=10)
+    parser.add_argument("--save-increment", type=int, default=20)
+    parser.add_argument("--restart-increment", type=int)
+    parser.add_argument("--resume", action="store_true", help="Run solver_resume.xml from an existing stFile_last.bin.")
+    parser.add_argument("--allow-missing-restart", action="store_true")
     parser.add_argument("--production", action="store_true")
     parser.add_argument("--timeout-s", type=float)
     args = parser.parse_args()
@@ -22,21 +25,29 @@ def main() -> int:
         [sys.executable, "scripts/prepare_case.py"],
         [sys.executable, "scripts/make_bc.py"],
     ]
-    xml_cmd = [
+    xml_base = [
         sys.executable,
         "scripts/write_solver_xml.py",
         "--save-increment",
         str(args.save_increment),
     ]
+    if args.restart_increment is not None:
+        xml_base += ["--restart-increment", str(args.restart_increment)]
     if args.cycles is not None:
-        xml_cmd += ["--cycles", str(args.cycles)]
+        xml_base += ["--cycles", str(args.cycles)]
     else:
-        xml_cmd += ["--n-steps", str(args.n_steps)]
+        xml_base += ["--n-steps", str(args.n_steps)]
     if args.production:
-        xml_cmd.append("--production")
-    steps.append(xml_cmd)
+        xml_base.append("--production")
+    steps.append([*xml_base, "--out", "simulation_truth/solver.xml"])
+    steps.append([*xml_base, "--resume", "--out", "simulation_truth/solver_resume.xml"])
+    steps.append([sys.executable, "scripts/write_run_scripts.py", "--np", str(args.np)])
 
     run_cmd = [sys.executable, "scripts/run_solver.py", "--np", str(args.np)]
+    if args.resume:
+        run_cmd.append("--resume")
+    if args.allow_missing_restart:
+        run_cmd.append("--allow-missing-restart")
     if args.run:
         run_cmd.append("--run")
         if args.timeout_s is not None:
@@ -57,7 +68,8 @@ def main() -> int:
     status = {
         "status": "launched" if args.run else "ready_to_run",
         "completed": completed,
-        "solver_xml": "case/sv50/simulation_truth/solver.xml",
+        "solver_xml": "case/sv50/simulation_truth/solver_resume.xml" if args.resume else "case/sv50/simulation_truth/solver.xml",
+        "resume_xml": "case/sv50/simulation_truth/solver_resume.xml",
         "solver_status": "case/sv50/simulation_truth/solver_status.json",
     }
     write_json("case/sv50/simulation_truth/auto_status.json", status)

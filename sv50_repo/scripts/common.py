@@ -54,7 +54,7 @@ def write_csv(path: str | Path, rows: list[dict[str, Any]]) -> None:
             if key not in keys:
                 keys.append(key)
     with p.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=keys)
+        writer = csv.DictWriter(f, fieldnames=keys, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 

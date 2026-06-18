@@ -17,6 +17,7 @@
 | 面标签 | `case/sv50/simvascular/face_labels.json` | 面名称、类型、面积、cell 数、原始名称映射 |
 | 终端截面 | `case/sv50/geometry/terminal_planes.json` | 当前 20 个 terminal cap 的定义 |
 | 默认边界条件 | `configs/bc.yaml` | 默认入口流量、出口目标流量、RCR 参数 |
+| baseline 说明 | `configs/bc_visible_sta_baseline.yaml`、`docs/visible_sta_baseline_bc.md` | 推荐 visible-STA baseline 的副本和解释 |
 | 求解配置 | `configs/case.yaml` | 血液参数、求解步长、路径、求解器名称 |
 | 自动化脚本 | `scripts/*.py` | prepare、BC 生成、XML 生成、solver 启动、可视化 |
 | 可视化结果 | `case/sv50/reports/Figures/` | 三视图、斜视图、边界面编号表 |
@@ -32,10 +33,10 @@
 
 | 名称 | 生理含义 | 默认平均流量 |
 |---|---|---:|
-| `L_CCA_IN` | 左颈总动脉入口 | 260 ml/min |
-| `R_CCA_IN` | 右颈总动脉入口 | 260 ml/min |
-| `L_VA_IN` | 左椎动脉入口 | 50 ml/min |
-| `R_VA_IN` | 右椎动脉入口 | 50 ml/min |
+| `L_CCA_IN` | 左颈总动脉入口 | 270 ml/min |
+| `R_CCA_IN` | 右颈总动脉入口 | 270 ml/min |
+| `L_VA_IN` | 左椎动脉入口 | 85 ml/min |
+| `R_VA_IN` | 右椎动脉入口 | 85 ml/min |
 
 入口在 svMultiPhysics 中使用：
 
@@ -59,12 +60,12 @@ case/sv50/simulation_truth/inlet_R_VA_IN.flow
 
 | 名称 | 分组 | 默认目标平均流量 |
 |---|---|---:|
-| `L_ACA_OUT` | 左 ACA 出口 | 65 ml/min |
-| `R_ACA_OUT` | 右 ACA 出口 | 65 ml/min |
-| `L_MCA_OUT` | 左 MCA 出口 | 170 ml/min |
-| `R_MCA_OUT` | 右 MCA 出口 | 170 ml/min |
-| `L_PCA_OUT` | 左 PCA 出口 | 55 ml/min |
-| `R_PCA_OUT` | 右 PCA 出口 | 55 ml/min |
+| `L_ACA_OUT` | 左 ACA 出口 | 94 ml/min |
+| `R_ACA_OUT` | 右 ACA 出口 | 94 ml/min |
+| `L_MCA_OUT` | 左 MCA 出口 | 174 ml/min |
+| `R_MCA_OUT` | 右 MCA 出口 | 174 ml/min |
+| `L_PCA_OUT` | 左 PCA 出口 | 67 ml/min |
+| `R_PCA_OUT` | 右 PCA 出口 | 67 ml/min |
 | `L_TFA_OUT` | 左 transverse facial artery 出口 | 5 ml/min |
 | `R_TFA_OUT` | 右 transverse facial artery 出口 | 5 ml/min |
 | `L_STA_OUT1` | 左 STA 出口 1 | 5 ml/min |
@@ -161,7 +162,7 @@ pressure:
 
 rcr:
   proximal_fraction: 0.05
-  total_compliance_cm3_per_barye: 1.0e-5
+  total_compliance_cm3_per_barye: 1.9e-5
 ```
 
 当前 XML 里 `Distal_pressure` 和 `Initial_pressure` 默认写为 `0.0`。如果后续需要更接近 CoW_Automation 中较稳定的初始化策略，可以把 `Initial_pressure` 改为接近平均动脉压的 dyn/cm² 值，例如约 `115990 dyn/cm²`，但这需要在脚本中显式实现，当前默认流程尚未这样做。
@@ -220,10 +221,10 @@ configs/bc.yaml
 ```yaml
 truth_bc:
   inlet_mean_flows_ml_min:
-    L_CCA_IN: 260
-    R_CCA_IN: 260
-    L_VA_IN: 50
-    R_VA_IN: 50
+    L_CCA_IN: 270
+    R_CCA_IN: 270
+    L_VA_IN: 85
+    R_VA_IN: 85
 ```
 
 如果后续使用超声测量数据，应把 CCA、VA 或更近端入口的平均流量换成测量估算值。当前模型入口是 CCA 和 VA，不是 ICA；因此如果要做 RICA sweep，当前更直接的对应方式是先做 `R_CCA_IN` sweep。除非重新把模型入口切到 RICA，否则不能把 CoW case 里的 `RICA` 名称原样迁移过来。
@@ -235,12 +236,12 @@ truth_bc:
 ```yaml
 truth_bc:
   outlet_target_flows_ml_min:
-    L_ACA_OUT: 65
-    R_ACA_OUT: 65
-    L_MCA_OUT: 170
-    R_MCA_OUT: 170
-    L_PCA_OUT: 55
-    R_PCA_OUT: 55
+    L_ACA_OUT: 94
+    R_ACA_OUT: 94
+    L_MCA_OUT: 174
+    R_MCA_OUT: 174
+    L_PCA_OUT: 67
+    R_PCA_OUT: 67
     ...
 ```
 
@@ -251,6 +252,8 @@ truth_bc:
 ```
 
 如果增加或减少某个出口目标流量，必须同步调整其它出口或入口，否则脚本会报错。
+
+当前推荐 baseline 的总入口为 710 ml/min，其中脑出口合计 670 ml/min，显式 STA/TFA 出口合计 40 ml/min。这个版本没有额外加入隐藏的 ECA 下游床，因此 `L_CCA_IN/R_CCA_IN` 不能解释为完整生理 CCA 总流量，而应解释为 ICA/Willis 环供血加当前显式 STA/TFA 分支流量。
 
 ### 5.3 RCR 参数
 
@@ -265,7 +268,7 @@ configs/bc.yaml
 ```yaml
 rcr:
   proximal_fraction: 0.05
-  total_compliance_cm3_per_barye: 1.0e-5
+  total_compliance_cm3_per_barye: 1.9e-5
 ```
 
 当前 RCR 是按目标流量和目标压力自动估计的，不是经过病人特异性校准的 Windkessel 参数。要做严肃生理结论时，应根据文献、患者血压、出口血管床或上一级 0D/1D 模型重新校准。
@@ -286,7 +289,8 @@ solver:
   cardiac_cycle_s: 0.8
   cycles_test: 2
   cycles_production: 5
-  save_increment: 100
+  save_increment: 20
+  restart_increment: 50
 ```
 
 当前模型约 176 万四面体，明显大于之前 CoW_Automation 中约 18 万四面体的测试模型。建议先跑短步数 smoke test，再跑完整周期。
@@ -410,6 +414,9 @@ ready_to_run
 case/sv50/simulation_truth/bc_summary.json
 case/sv50/simulation_truth/outlet_rcr.csv
 case/sv50/simulation_truth/solver.xml
+case/sv50/simulation_truth/solver_resume.xml
+case/sv50/simulation_truth/run.sh
+case/sv50/simulation_truth/resume.sh
 case/sv50/simulation_truth/solver_status.json
 ```
 
@@ -418,13 +425,13 @@ case/sv50/simulation_truth/solver_status.json
 推荐先用 MPI 跑很短的测试：
 
 ```bash
-python scripts/auto_solve.py --run --np 8 --n-steps 2 --save-increment 1 --timeout-s 1800
+python scripts/auto_solve.py --run --np 8 --n-steps 2 --save-increment 1 --restart-increment 1 --timeout-s 1800
 ```
 
 如果没有 MPI，也可以单进程测试，但当前模型较大，单进程可能很慢：
 
 ```bash
-python scripts/auto_solve.py --run --np 1 --n-steps 2 --save-increment 1 --timeout-s 3600
+python scripts/auto_solve.py --run --np 1 --n-steps 2 --save-increment 1 --restart-increment 1 --timeout-s 3600
 ```
 
 结果通常出现在：
@@ -441,10 +448,10 @@ case/sv50/simulation_truth/1-procs/
 
 ### 7.5 较长测试
 
-例如跑 20 步，每 10 步保存一次：
+例如跑 20 步，每 20 步保存一次：
 
 ```bash
-python scripts/auto_solve.py --run --np 8 --n-steps 20 --save-increment 10 --timeout-s 7200
+python scripts/auto_solve.py --run --np 8 --n-steps 20 --save-increment 20 --timeout-s 7200
 ```
 
 例如跑 0.25 个心动周期：
@@ -456,7 +463,7 @@ python scripts/auto_solve.py --run --np 8 --cycles 0.25 --save-increment 20 --ti
 例如按 `configs/case.yaml` 中 `cycles_production` 跑 production-like：
 
 ```bash
-python scripts/auto_solve.py --run --np 8 --production --save-increment 100
+python scripts/auto_solve.py --run --np 8 --production --save-increment 20 --restart-increment 50
 ```
 
 注意：当前 `--production` 不是小测试，可能运行很久，也会生成较多结果文件。建议先完成 smoke solve。
@@ -532,14 +539,14 @@ python scripts/auto_solve.py --run --np 8 --n-steps 20 --save-increment 10 --tim
 - 入口是 `L_CCA_IN/R_CCA_IN/L_VA_IN/R_VA_IN`，不是 ICA。
 - 出口除了 ACA/MCA/PCA，还包含 STA/TFA 外颈相关出口。
 - 网格规模约 176 万四面体，明显大于 CoW_Automation 中约 18 万四面体的测试网格。
-- 当前默认 XML 生成脚本没有内置 CoW 的 `resume.sh`、`solver_resume.xml`、`B_INT/V_INT` 和 `save20/restart50` preset。
+- 当前 `sv50` 已经对齐 CoW 的 restart 框架：自动生成 `solver.xml`、`solver_resume.xml`、`run.sh`、`resume.sh`，并默认打开 `B_INT/V_INT` 边界积分输出。
 
-因此迁移 CoW 策略时，建议先迁移求解框架，而不是直接复制 CoW 的边界名称：
+因此迁移 CoW 策略时，已经完成的是求解框架迁移，而不是直接复制 CoW 的边界名称：
 
 1. 将 `RICA sweep` 改成 `R_CCA_IN sweep`，或者重新切模型入口到 RICA。
-2. 为 `sv50` 增加 `solver_resume.xml` 生成逻辑。
-3. 增加 `B_INT` / `V_INT` 输出，方便监控边界流量。
-4. 将长跑参数设置为：
+2. `sv50` 已增加 `solver_resume.xml` 生成逻辑。
+3. `sv50` 已增加 `B_INT` / `V_INT` 输出，方便监控边界流量。
+4. 长跑参数默认建议为：
 
 ```text
 dt = 0.001
@@ -548,6 +555,59 @@ restart_every = 50
 ```
 
 5. 先跑 `20-50 steps`，确认残差、边界流量和结果文件正常，再跑完整周期。
+
+### 10.1 中断后恢复
+
+初次运行使用：
+
+```bash
+python scripts/auto_solve.py \
+  --run \
+  --np 8 \
+  --cycles 3 \
+  --save-increment 20 \
+  --restart-increment 50
+```
+
+该命令会生成并使用：
+
+```text
+case/sv50/simulation_truth/solver.xml
+```
+
+如果运行中断，且已经生成：
+
+```text
+case/sv50/simulation_truth/8-procs/stFile_last.bin
+```
+
+则使用相同 MPI 进程数恢复：
+
+```bash
+python scripts/auto_solve.py \
+  --resume \
+  --run \
+  --np 8 \
+  --cycles 3 \
+  --save-increment 20 \
+  --restart-increment 50
+```
+
+该命令会使用：
+
+```text
+case/sv50/simulation_truth/solver_resume.xml
+```
+
+也可以直接使用 CoW 风格脚本：
+
+```bash
+cd case/sv50/simulation_truth
+MPI_NP=8 bash run.sh
+MPI_NP=8 bash resume.sh
+```
+
+注意：resume 必须使用和初始运行一致的 `MPI_NP`。例如初始运行是 `--np 8`，恢复也应该使用 `--np 8`，否则 `8-procs/stFile_last.bin` 的并行分区状态和当前进程数不匹配。
 
 ## 11. 常见问题
 
@@ -638,4 +698,3 @@ python scripts/auto_solve.py --run --np 8 --n-steps 2 --save-increment 1 --timeo
 ```
 
 如果 dry-run 成功、Figures 可重新生成、2-step smoke solve 能写出 `histor.dat` 或 `result_*.vtu`，说明工程基本可复现。
-

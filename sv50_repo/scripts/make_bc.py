@@ -72,7 +72,7 @@ def main() -> int:
     pressure = truth["pressure"]
     dp = mmhg_to_barye(float(pressure["target_mean_mmHg"]) - float(pressure["venous_or_distal_mmHg"]))
     prox = float(bc_cfg["rcr"].get("proximal_fraction", 0.05))
-    c_total = float(bc_cfg["rcr"].get("total_compliance_cm3_per_barye", 1.0e-5))
+    c_total = float(bc_cfg["rcr"].get("total_compliance_cm3_per_barye", 1.9e-5))
     rows = []
     for outlet, target_ml_min in outlets.items():
         resistance = dp / ml_min_to_cm3_s(target_ml_min)
@@ -96,6 +96,7 @@ def main() -> int:
         "pressure": pressure,
         "inlet_flow_files": inlet_files,
         "outlet_rcr_csv": repo_rel(sim_dir / "outlet_rcr.csv"),
+        "notes": bc_cfg.get("notes", []),
     }
     write_json(sim_dir / "bc_summary.json", summary)
     print(f"wrote {sim_dir / 'bc_summary.json'}")
