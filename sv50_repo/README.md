@@ -150,3 +150,17 @@ facial, occipital, lingual, and other omitted ECA beds.
 The RCR table is generated from these target flows, a mean pressure target of
 90 mmHg, distal pressure of 10 mmHg, proximal resistance fraction of 0.05, and
 total compliance of `1.9e-5 cm3/barye`.
+
+## Solver Stability Preset
+
+The XML writer uses the same conservative startup style as the CoW automation
+case:
+
+- nonlinear iterations: `Min_iterations=2`, `Max_iterations=3`
+- nonlinear tolerance: `1e-3`
+- blood viscosity: `0.04 Poise`
+- linear solver limits: `Max_iterations=30`, `NS_GM=25`, `NS_CG=800`
+- RCR initial pressure: `87 mmHg` (`115990.14 dyn/cm2`)
+
+These are intentionally solver-stability settings. They do not change the sv50
+geometry or visible-STA baseline flow split.

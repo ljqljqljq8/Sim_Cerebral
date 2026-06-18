@@ -273,6 +273,8 @@ rcr:
 
 当前 RCR 是按目标流量和目标压力自动估计的，不是经过病人特异性校准的 Windkessel 参数。要做严肃生理结论时，应根据文献、患者血压、出口血管床或上一级 0D/1D 模型重新校准。
 
+当前 XML 参考 CoW_Automation 的稳定启动设置，RCR 的 `Initial_pressure` 不再写为 `0.0`，而是写为 `87 mmHg` 对应的 `115990.14 dyn/cm²`。这个改动主要是为了避免从零压力场直接进入完整入口流量时第一步难以收敛。
+
 ### 5.4 求解步长和周期
 
 文件：
@@ -291,6 +293,13 @@ solver:
   cycles_production: 5
   save_increment: 20
   restart_increment: 50
+  nonlinear_min_iterations: 2
+  nonlinear_max_iterations: 3
+  nonlinear_tolerance: 1.0e-3
+  linear_solver_max_iterations: 30
+  ns_gm_max_iterations: 25
+  ns_cg_max_iterations: 800
+  rcr_initial_pressure_mmHg: 87.0
 ```
 
 当前模型约 176 万四面体，明显大于之前 CoW_Automation 中约 18 万四面体的测试模型。建议先跑短步数 smoke test，再跑完整周期。

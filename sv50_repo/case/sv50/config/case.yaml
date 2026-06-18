@@ -19,7 +19,7 @@ paths:
 
 blood:
   density_g_per_cm3: 1.06
-  viscosity_poise: 0.035
+  viscosity_poise: 0.04
 
 solver:
   wall: rigid
@@ -33,6 +33,17 @@ solver:
   stop_file: STOP_SIM_SV50
   stop_file_resume: STOP_SIM_SV50_RESUME
   boundary_integral_output: true
+  nonlinear_min_iterations: 2
+  nonlinear_max_iterations: 3
+  nonlinear_tolerance: 1.0e-3
+  backflow_stabilization_coefficient: 0.2
+  linear_solver_max_iterations: 30
+  ns_gm_max_iterations: 25
+  ns_cg_max_iterations: 800
+  linear_solver_tolerance: 1.0e-3
+  ns_gm_tolerance: 1.0e-3
+  ns_cg_tolerance: 1.0e-3
+  rcr_initial_pressure_mmHg: 87.0
   inlet_profile: Parabolic
   outlet_bc: RCR
   mpi_np_default: 8

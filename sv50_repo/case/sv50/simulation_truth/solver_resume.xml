@@ -85,13 +85,13 @@
   </Add_mesh>
   <Add_equation type="fluid">
     <Coupled>true</Coupled>
-    <Min_iterations>3</Min_iterations>
-    <Max_iterations>12</Max_iterations>
-    <Tolerance>1e-11</Tolerance>
+    <Min_iterations>2</Min_iterations>
+    <Max_iterations>3</Max_iterations>
+    <Tolerance>0.001</Tolerance>
     <Backflow_stabilization_coefficient>0.2</Backflow_stabilization_coefficient>
     <Density>1.06000000</Density>
     <Viscosity model="Constant">
-      <Value>0.03500000</Value>
+      <Value>0.04000000</Value>
     </Viscosity>
     <Output type="Spatial">
       <Velocity>true</Velocity>
@@ -112,12 +112,12 @@
       <Linear_algebra type="fsils">
         <Preconditioner>fsils</Preconditioner>
       </Linear_algebra>
-      <Max_iterations>15</Max_iterations>
-      <NS_GM_max_iterations>10</NS_GM_max_iterations>
-      <NS_CG_max_iterations>300</NS_CG_max_iterations>
-      <Tolerance>1e-3</Tolerance>
-      <NS_GM_tolerance>1e-3</NS_GM_tolerance>
-      <NS_CG_tolerance>1e-3</NS_CG_tolerance>
+      <Max_iterations>30</Max_iterations>
+      <NS_GM_max_iterations>25</NS_GM_max_iterations>
+      <NS_CG_max_iterations>800</NS_CG_max_iterations>
+      <Tolerance>0.001</Tolerance>
+      <NS_GM_tolerance>0.001</NS_GM_tolerance>
+      <NS_CG_tolerance>0.001</NS_CG_tolerance>
       <Absolute_tolerance>1e-17</Absolute_tolerance>
       <Krylov_space_dimension>250</Krylov_space_dimension>
     </LS>
@@ -157,7 +157,7 @@
         <Distal_resistance>64675.353</Distal_resistance>
         <Proximal_resistance>3403.966</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="R_ACA_OUT">
@@ -168,7 +168,7 @@
         <Distal_resistance>64675.353</Distal_resistance>
         <Proximal_resistance>3403.966</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="L_MCA_OUT">
@@ -179,7 +179,7 @@
         <Distal_resistance>34939.559</Distal_resistance>
         <Proximal_resistance>1838.9241</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="R_MCA_OUT">
@@ -190,7 +190,7 @@
         <Distal_resistance>34939.559</Distal_resistance>
         <Proximal_resistance>1838.9241</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="L_PCA_OUT">
@@ -201,7 +201,7 @@
         <Distal_resistance>90738.555</Distal_resistance>
         <Proximal_resistance>4775.7134</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="R_PCA_OUT">
@@ -212,7 +212,7 @@
         <Distal_resistance>90738.555</Distal_resistance>
         <Proximal_resistance>4775.7134</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="L_TFA_OUT">
@@ -223,7 +223,7 @@
         <Distal_resistance>1215896.6</Distal_resistance>
         <Proximal_resistance>63994.56</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="R_TFA_OUT">
@@ -234,7 +234,7 @@
         <Distal_resistance>1215896.6</Distal_resistance>
         <Proximal_resistance>63994.56</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="L_STA_OUT1">
@@ -245,7 +245,7 @@
         <Distal_resistance>1215896.6</Distal_resistance>
         <Proximal_resistance>63994.56</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="R_STA_OUT1">
@@ -256,7 +256,7 @@
         <Distal_resistance>1215896.6</Distal_resistance>
         <Proximal_resistance>63994.56</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="L_STA_OUT2">
@@ -267,7 +267,7 @@
         <Distal_resistance>1519870.8</Distal_resistance>
         <Proximal_resistance>79993.2</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="R_STA_OUT2">
@@ -278,7 +278,7 @@
         <Distal_resistance>1519870.8</Distal_resistance>
         <Proximal_resistance>79993.2</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="L_STA_OUT3">
@@ -289,7 +289,7 @@
         <Distal_resistance>3039741.6</Distal_resistance>
         <Proximal_resistance>159986.4</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="R_STA_OUT3">
@@ -300,7 +300,7 @@
         <Distal_resistance>3039741.6</Distal_resistance>
         <Proximal_resistance>159986.4</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="L_STA_FB_OUT">
@@ -311,7 +311,7 @@
         <Distal_resistance>1519870.8</Distal_resistance>
         <Proximal_resistance>79993.2</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="R_STA_FB_OUT">
@@ -322,7 +322,7 @@
         <Distal_resistance>1519870.8</Distal_resistance>
         <Proximal_resistance>79993.2</Proximal_resistance>
         <Distal_pressure>0.0</Distal_pressure>
-        <Initial_pressure>0.0</Initial_pressure>
+        <Initial_pressure>115990.14</Initial_pressure>
       </RCR_values>
     </Add_BC>
     <Add_BC name="WALL">

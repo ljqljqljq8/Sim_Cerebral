@@ -7,7 +7,7 @@ import os
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-from common import REPO_ROOT, load_yaml, read_json, resolve
+from common import REPO_ROOT, load_yaml, mmhg_to_barye, read_json, resolve
 
 
 def indent(elem: ET.Element, level: int = 0) -> None:
@@ -113,10 +113,12 @@ def main() -> int:
 
     equation = ET.SubElement(root, "Add_equation", type="fluid")
     ET.SubElement(equation, "Coupled").text = "true"
-    ET.SubElement(equation, "Min_iterations").text = "3"
-    ET.SubElement(equation, "Max_iterations").text = "12"
-    ET.SubElement(equation, "Tolerance").text = "1e-11"
-    ET.SubElement(equation, "Backflow_stabilization_coefficient").text = "0.2"
+    ET.SubElement(equation, "Min_iterations").text = str(solver.get("nonlinear_min_iterations", 2))
+    ET.SubElement(equation, "Max_iterations").text = str(solver.get("nonlinear_max_iterations", 3))
+    ET.SubElement(equation, "Tolerance").text = str(solver.get("nonlinear_tolerance", "1e-3"))
+    ET.SubElement(equation, "Backflow_stabilization_coefficient").text = str(
+        solver.get("backflow_stabilization_coefficient", 0.2)
+    )
     ET.SubElement(equation, "Density").text = f"{float(blood.get('density_g_per_cm3', 1.06)):.8f}"
     viscosity = ET.SubElement(equation, "Viscosity", model="Constant")
     ET.SubElement(viscosity, "Value").text = f"{float(blood.get('viscosity_poise', 0.035)):.8f}"
@@ -134,12 +136,12 @@ def main() -> int:
     linear_solver = ET.SubElement(equation, "LS", type="NS")
     algebra = ET.SubElement(linear_solver, "Linear_algebra", type="fsils")
     ET.SubElement(algebra, "Preconditioner").text = "fsils"
-    ET.SubElement(linear_solver, "Max_iterations").text = "15"
-    ET.SubElement(linear_solver, "NS_GM_max_iterations").text = "10"
-    ET.SubElement(linear_solver, "NS_CG_max_iterations").text = "300"
-    ET.SubElement(linear_solver, "Tolerance").text = "1e-3"
-    ET.SubElement(linear_solver, "NS_GM_tolerance").text = "1e-3"
-    ET.SubElement(linear_solver, "NS_CG_tolerance").text = "1e-3"
+    ET.SubElement(linear_solver, "Max_iterations").text = str(solver.get("linear_solver_max_iterations", 30))
+    ET.SubElement(linear_solver, "NS_GM_max_iterations").text = str(solver.get("ns_gm_max_iterations", 25))
+    ET.SubElement(linear_solver, "NS_CG_max_iterations").text = str(solver.get("ns_cg_max_iterations", 800))
+    ET.SubElement(linear_solver, "Tolerance").text = str(solver.get("linear_solver_tolerance", "1e-3"))
+    ET.SubElement(linear_solver, "NS_GM_tolerance").text = str(solver.get("ns_gm_tolerance", "1e-3"))
+    ET.SubElement(linear_solver, "NS_CG_tolerance").text = str(solver.get("ns_cg_tolerance", "1e-3"))
     ET.SubElement(linear_solver, "Absolute_tolerance").text = "1e-17"
     ET.SubElement(linear_solver, "Krylov_space_dimension").text = "250"
 
@@ -153,6 +155,7 @@ def main() -> int:
         ET.SubElement(inlet_bc, "Profile").text = str(solver.get("inlet_profile", "Parabolic"))
         ET.SubElement(inlet_bc, "Impose_flux").text = "true"
 
+    rcr_initial_pressure = mmhg_to_barye(float(solver.get("rcr_initial_pressure_mmHg", 87.0)))
     for row in rcr_rows:
         outlet = row["outlet"]
         if outlet not in face_names:
@@ -165,7 +168,7 @@ def main() -> int:
         ET.SubElement(values, "Distal_resistance").text = f"{float(row['Rd_barye_s_per_cm3']):.8g}"
         ET.SubElement(values, "Proximal_resistance").text = f"{float(row['Rp_barye_s_per_cm3']):.8g}"
         ET.SubElement(values, "Distal_pressure").text = "0.0"
-        ET.SubElement(values, "Initial_pressure").text = "0.0"
+        ET.SubElement(values, "Initial_pressure").text = f"{rcr_initial_pressure:.8g}"
 
     if "WALL" in face_names:
         wall_bc = ET.SubElement(equation, "Add_BC", name="WALL")
