@@ -1,0 +1,22 @@
+aliases:
+  L_CCA_inlet: L_CCA_IN
+  R_CCA_inlet: R_CCA_IN
+  L_VA_inlet: L_VA_IN
+  R_VA_inlet: R_VA_IN
+  left_anterior_cerebral_artery__distal: L_ACA_OUT
+  right_anterior_cerebral_artery__distal: R_ACA_OUT
+  left_middle_cerebral_artery__distal: L_MCA_OUT
+  right_middle_cerebral_artery__distal: R_MCA_OUT
+  left_posterior_cerebral_artery__distal: L_PCA_OUT
+  right_posterior_cerebral_artery__distal: R_PCA_OUT
+  left_external_carotid_artery__branch__transverse_facial_artery_l__distal: L_TFA_OUT
+  right_external_carotid_artery__branch__transverse_facial_artery_r__distal: R_TFA_OUT
+  left_superficial_temporal_artery__distal: L_STA_OUT1
+  right_superficial_temporal_artery__distal: R_STA_OUT1
+  left_superficial_temporal_artery__distal_2: L_STA_OUT2
+  right_superficial_temporal_artery__distal_2: R_STA_OUT2
+  left_superficial_temporal_artery__distal_3: L_STA_OUT3
+  right_superficial_temporal_artery__distal_3: R_STA_OUT3
+  left_superficial_temporal_artery__branch__frontal_branch_of_superficial_temporal_artery_l__distal: L_STA_FB_OUT
+  right_superficial_temporal_artery__branch__frontal_branch_of_superficial_temporal_artery_r__distal: R_STA_FB_OUT
+  wall: WALL

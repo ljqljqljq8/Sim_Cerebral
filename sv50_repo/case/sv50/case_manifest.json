@@ -1,0 +1,18 @@
+{
+  "case_dir": "case/sv50",
+  "source_root": "case/sv50/source",
+  "source_mesh_case": "case/sv50/source/sv50",
+  "mesh": "case/sv50/simvascular/mesh/mesh-complete.mesh.vtu",
+  "exterior": "case/sv50/simvascular/mesh/mesh-complete.exterior.vtp",
+  "surface": "case/sv50/geometry/surface_solve.vtp",
+  "face_labels": "case/sv50/simvascular/face_labels.json",
+  "terminal_planes": "case/sv50/geometry/terminal_planes.json",
+  "face_count": 21,
+  "role_counts": {
+    "outlet": 16,
+    "inlet": 4,
+    "wall": 1
+  },
+  "terminal_plane_count": 20,
+  "production_ready_terminal_caps": true
+}

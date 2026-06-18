@@ -1,0 +1,577 @@
+{
+  "reference": "cases/cfd_v5/geo/surf3.vtp",
+  "candidate": "cases/cfd_v5/geo/surf_tet50d.vtp",
+  "diff_scalar_vtp": "case/sv50/source/qc_diff/surf3_to_t50d_dist.vtp",
+  "surf3": {
+    "points": 616815,
+    "triangles": 1233634,
+    "bounds": [
+      -7.368887901306152,
+      7.368887901306152,
+      -7.236649036407471,
+      3.6338319778442383,
+      139.5221405029297,
+      167.1184844970703
+    ]
+  },
+  "surf_tet50d": {
+    "points": 308405,
+    "triangles": 616814,
+    "bounds": [
+      -7.368887901306152,
+      7.368887901306152,
+      -7.236649036407471,
+      3.6338319778442383,
+      139.5221405029297,
+      167.1184844970703
+    ]
+  },
+  "point_reduction_fraction": 0.5000040530791242,
+  "triangle_reduction_fraction": 0.5000024318395894,
+  "candidate_points_to_surf3_nearest_point_distance_cm": {
+    "mean": 0.0,
+    "p50": 0.0,
+    "p95": 0.0,
+    "p99": 0.0,
+    "max": 0.0
+  },
+  "surf3_to_candidate_surface_distance_cm": {
+    "mean": 0.0001786753689341598,
+    "p50": 0.0,
+    "p95": 0.0008214032345690933,
+    "p99": 0.0013360336634409091,
+    "max": 0.013780235669790098
+  },
+  "surf3_distance_thresholds": {
+    "0.0005": {
+      "count": 80370,
+      "fraction_of_surf3_points": 0.1302983876851244,
+      "top_nearest_segments": [
+        [
+          "left_common_carotid_artery_0",
+          21289
+        ],
+        [
+          "right_common_carotid_artery_0",
+          17206
+        ],
+        [
+          "left_external_carotid_artery_0",
+          7724
+        ],
+        [
+          "right_external_carotid_artery_0",
+          7231
+        ],
+        [
+          "right_internal_carotid_artery_0",
+          6082
+        ],
+        [
+          "left_internal_carotid_artery_0",
+          5430
+        ],
+        [
+          "left_superficial_temporal_artery_0",
+          2865
+        ],
+        [
+          "left_vertebral_artery_0",
+          2284
+        ],
+        [
+          "right_superficial_temporal_artery_0",
+          2238
+        ],
+        [
+          "right_vertebral_artery_0",
+          2215
+        ],
+        [
+          "left_middle_cerebral_artery_0",
+          618
+        ],
+        [
+          "right_anterior_cerebral_artery_0",
+          553
+        ]
+      ]
+    },
+    "0.001": {
+      "count": 16406,
+      "fraction_of_surf3_points": 0.026597926444720053,
+      "top_nearest_segments": [
+        [
+          "left_common_carotid_artery_0",
+          4121
+        ],
+        [
+          "right_common_carotid_artery_0",
+          3105
+        ],
+        [
+          "right_internal_carotid_artery_0",
+          1493
+        ],
+        [
+          "left_external_carotid_artery_0",
+          1436
+        ],
+        [
+          "right_external_carotid_artery_0",
+          1213
+        ],
+        [
+          "left_internal_carotid_artery_0",
+          1207
+        ],
+        [
+          "left_superficial_temporal_artery_0",
+          743
+        ],
+        [
+          "right_superficial_temporal_artery_0",
+          487
+        ],
+        [
+          "right_vertebral_artery_0",
+          440
+        ],
+        [
+          "left_vertebral_artery_0",
+          406
+        ],
+        [
+          "left_middle_cerebral_artery_0",
+          229
+        ],
+        [
+          "right_middle_cerebral_artery_0",
+          173
+        ]
+      ]
+    },
+    "0.002": {
+      "count": 2134,
+      "fraction_of_surf3_points": 0.0034597083404262216,
+      "top_nearest_segments": [
+        [
+          "left_common_carotid_artery_0",
+          698
+        ],
+        [
+          "right_common_carotid_artery_0",
+          345
+        ],
+        [
+          "left_external_carotid_artery_0",
+          290
+        ],
+        [
+          "right_external_carotid_artery_0",
+          160
+        ],
+        [
+          "left_internal_carotid_artery_0",
+          150
+        ],
+        [
+          "right_internal_carotid_artery_0",
+          126
+        ],
+        [
+          "left_superficial_temporal_artery_0",
+          73
+        ],
+        [
+          "right_posterior_cerebral_artery_0",
+          35
+        ],
+        [
+          "right_superficial_temporal_artery_0",
+          35
+        ],
+        [
+          "left_posterior_cerebral_artery_0",
+          34
+        ],
+        [
+          "left_middle_cerebral_artery_0",
+          24
+        ],
+        [
+          "right_vertebral_artery_0",
+          23
+        ]
+      ]
+    },
+    "0.005": {
+      "count": 177,
+      "fraction_of_surf3_points": 0.0002869580019941149,
+      "top_nearest_segments": [
+        [
+          "left_internal_carotid_artery_0",
+          61
+        ],
+        [
+          "left_common_carotid_artery_0",
+          53
+        ],
+        [
+          "right_common_carotid_artery_0",
+          47
+        ],
+        [
+          "right_external_carotid_artery_0",
+          12
+        ],
+        [
+          "left_superficial_temporal_artery_1",
+          1
+        ],
+        [
+          "left_posterior_cerebral_artery_0",
+          1
+        ],
+        [
+          "right_posterior_communicating_artery_0",
+          1
+        ],
+        [
+          "right_superficial_temporal_artery_1",
+          1
+        ]
+      ]
+    },
+    "0.01": {
+      "count": 19,
+      "fraction_of_surf3_points": 3.080340134400104e-05,
+      "top_nearest_segments": [
+        [
+          "left_common_carotid_artery_0",
+          11
+        ],
+        [
+          "right_common_carotid_artery_0",
+          5
+        ],
+        [
+          "left_internal_carotid_artery_0",
+          3
+        ]
+      ]
+    }
+  },
+  "top80_max_distance_segment_counts": [
+    [
+      "left_internal_carotid_artery_0",
+      36
+    ],
+    [
+      "left_common_carotid_artery_0",
+      23
+    ],
+    [
+      "right_common_carotid_artery_0",
+      21
+    ]
+  ],
+  "top_distance_points": [
+    {
+      "point_id": 152991,
+      "distance_cm": 0.013780235669790098,
+      "xyz_cm": [
+        2.886157989501953,
+        -0.3635610044002533,
+        148.03611755371094
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.073018872503402
+    },
+    {
+      "point_id": 153057,
+      "distance_cm": 0.013624764581751301,
+      "xyz_cm": [
+        2.8709070682525635,
+        -0.3590880036354065,
+        148.03611755371094
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.075730901326123
+    },
+    {
+      "point_id": 153058,
+      "distance_cm": 0.013450882033178232,
+      "xyz_cm": [
+        2.8661580085754395,
+        -0.35766899585723877,
+        148.03611755371094
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.076581450984362
+    },
+    {
+      "point_id": 153059,
+      "distance_cm": 0.012407212215494498,
+      "xyz_cm": [
+        2.8661580085754395,
+        -0.3590880036354065,
+        148.0229949951172
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.063905147985415
+    },
+    {
+      "point_id": 152992,
+      "distance_cm": 0.012184765871447617,
+      "xyz_cm": [
+        2.886157989501953,
+        -0.3653770089149475,
+        148.01612854003906
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.053671573002889
+    },
+    {
+      "point_id": 152928,
+      "distance_cm": 0.011989057437554,
+      "xyz_cm": [
+        2.906157970428467,
+        -0.36842700839042664,
+        148.03611755371094
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.069437351264876
+    },
+    {
+      "point_id": 153060,
+      "distance_cm": 0.011853015548525643,
+      "xyz_cm": [
+        2.8661580085754395,
+        -0.35982200503349304,
+        148.01612854003906
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.057272366800207
+    },
+    {
+      "point_id": 153125,
+      "distance_cm": 0.011777525562198797,
+      "xyz_cm": [
+        2.846158027648926,
+        -0.35070401430130005,
+        148.03611755371094
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.080124200373574
+    },
+    {
+      "point_id": 153127,
+      "distance_cm": 0.0117136801095032,
+      "xyz_cm": [
+        2.863900899887085,
+        -0.3590880036354065,
+        148.01612854003906
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.057673989096696
+    },
+    {
+      "point_id": 152929,
+      "distance_cm": 0.011577355026403516,
+      "xyz_cm": [
+        2.906157970428467,
+        -0.3699449896812439,
+        148.01612854003906
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.050054220655446
+    },
+    {
+      "point_id": 111156,
+      "distance_cm": 0.010511792643676042,
+      "xyz_cm": [
+        3.1661579608917236,
+        -0.04219900071620941,
+        151.49612426757812
+      ],
+      "nearest_segment_id": "left_internal_carotid_artery_0",
+      "nearest_segment_object": "Internal carotid artery.l",
+      "nearest_centerline_radius_cm": 0.2458333,
+      "nearest_terminal": "left_external_carotid_artery__branch__transverse_facial_artery_l__distal",
+      "terminal_distance_cm": 7.6793037953137615
+    },
+    {
+      "point_id": 153126,
+      "distance_cm": 0.010495529612582885,
+      "xyz_cm": [
+        2.846158027648926,
+        -0.35318899154663086,
+        148.01612854003906
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.0608517241336735
+    },
+    {
+      "point_id": 404597,
+      "distance_cm": 0.010338878069068152,
+      "xyz_cm": [
+        -1.3338420391082764,
+        -1.1850659847259521,
+        141.55612182617188
+      ],
+      "nearest_segment_id": "right_common_carotid_artery_0",
+      "nearest_segment_object": "Right common carotid artery",
+      "nearest_centerline_radius_cm": 0.4895834,
+      "nearest_terminal": "R_CCA_inlet",
+      "terminal_distance_cm": 0.5455431835102776
+    },
+    {
+      "point_id": 404441,
+      "distance_cm": 0.010161862577444822,
+      "xyz_cm": [
+        -1.3138420581817627,
+        -1.2027390003204346,
+        141.5761260986328
+      ],
+      "nearest_segment_id": "right_common_carotid_artery_0",
+      "nearest_segment_object": "Right common carotid artery",
+      "nearest_centerline_radius_cm": 0.4895834,
+      "nearest_terminal": "R_CCA_inlet",
+      "terminal_distance_cm": 0.5489833014822396
+    },
+    {
+      "point_id": 404739,
+      "distance_cm": 0.010138826407422826,
+      "xyz_cm": [
+        -1.3433899879455566,
+        -1.1790879964828491,
+        141.55612182617188
+      ],
+      "nearest_segment_id": "right_common_carotid_artery_0",
+      "nearest_segment_object": "Right common carotid artery",
+      "nearest_centerline_radius_cm": 0.4895834,
+      "nearest_terminal": "R_CCA_inlet",
+      "terminal_distance_cm": 0.5478208829017579
+    },
+    {
+      "point_id": 404595,
+      "distance_cm": 0.010132840305533079,
+      "xyz_cm": [
+        -1.318897008895874,
+        -1.1990879774093628,
+        141.5761260986328
+      ],
+      "nearest_segment_id": "right_common_carotid_artery_0",
+      "nearest_segment_object": "Right common carotid artery",
+      "nearest_centerline_radius_cm": 0.4895834,
+      "nearest_terminal": "R_CCA_inlet",
+      "terminal_distance_cm": 0.5502367891085975
+    },
+    {
+      "point_id": 404442,
+      "distance_cm": 0.010104752598072756,
+      "xyz_cm": [
+        -1.3138420581817627,
+        -1.1990879774093628,
+        141.55886840820312
+      ],
+      "nearest_segment_id": "right_common_carotid_artery_0",
+      "nearest_segment_object": "Right common carotid artery",
+      "nearest_centerline_radius_cm": 0.4916667,
+      "nearest_terminal": "R_CCA_inlet",
+      "terminal_distance_cm": 0.5418778212719295
+    },
+    {
+      "point_id": 111231,
+      "distance_cm": 0.010038379297545023,
+      "xyz_cm": [
+        3.1619749069213867,
+        -0.03908799961209297,
+        151.6561279296875
+      ],
+      "nearest_segment_id": "left_internal_carotid_artery_0",
+      "nearest_segment_object": "Internal carotid artery.l",
+      "nearest_centerline_radius_cm": 0.2416667,
+      "nearest_terminal": "left_external_carotid_artery__branch__transverse_facial_artery_l__distal",
+      "terminal_distance_cm": 7.583108962045315
+    },
+    {
+      "point_id": 111232,
+      "distance_cm": 0.010028507612379242,
+      "xyz_cm": [
+        3.162769079208374,
+        -0.03908799961209297,
+        151.63612365722656
+      ],
+      "nearest_segment_id": "left_internal_carotid_artery_0",
+      "nearest_segment_object": "Internal carotid artery.l",
+      "nearest_centerline_radius_cm": 0.2416667,
+      "nearest_terminal": "left_external_carotid_artery__branch__transverse_facial_artery_l__distal",
+      "terminal_distance_cm": 7.595241090832015
+    },
+    {
+      "point_id": 152864,
+      "distance_cm": 0.009999419981555997,
+      "xyz_cm": [
+        2.9261579513549805,
+        -0.3734929859638214,
+        148.01612854003906
+      ],
+      "nearest_segment_id": "left_common_carotid_artery_0",
+      "nearest_segment_object": "Left common carotid artery",
+      "nearest_centerline_radius_cm": 0.4,
+      "nearest_terminal": "L_VA_inlet",
+      "terminal_distance_cm": 6.0464151649109
+    }
+  ],
+  "face_area_cm2": {
+    "surf3": {
+      "mean": 0.00014380181854853436,
+      "p50": 0.00016225644242022673,
+      "p95": 0.00024630138970911983,
+      "p99": 0.00027434861041492075,
+      "max": 0.00041230916429033055
+    },
+    "surf_tet50d": {
+      "mean": 0.0002876590970676192,
+      "p50": 0.00021767232952137977,
+      "p95": 0.0008043157326130993,
+      "p99": 0.0014877522463044085,
+      "max": 0.148747281259767
+    }
+  }
+}

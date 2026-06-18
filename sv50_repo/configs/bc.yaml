@@ -1,0 +1,44 @@
+truth_bc:
+  cardiac_cycle_s: 0.8
+  sample_dt_s: 0.01
+  inlet_mean_flows_ml_min:
+    L_CCA_IN: 260
+    R_CCA_IN: 260
+    L_VA_IN: 50
+    R_VA_IN: 50
+  outlet_target_flows_ml_min:
+    L_ACA_OUT: 65
+    R_ACA_OUT: 65
+    L_MCA_OUT: 170
+    R_MCA_OUT: 170
+    L_PCA_OUT: 55
+    R_PCA_OUT: 55
+    L_TFA_OUT: 5
+    R_TFA_OUT: 5
+    L_STA_OUT1: 5
+    R_STA_OUT1: 5
+    L_STA_OUT2: 4
+    R_STA_OUT2: 4
+    L_STA_OUT3: 2
+    R_STA_OUT3: 2
+    L_STA_FB_OUT: 4
+    R_STA_FB_OUT: 4
+  pressure:
+    target_mean_mmHg: 90
+    venous_or_distal_mmHg: 10
+
+waveform:
+  mode: analytic
+  fourier_modes: 16
+  carotid:
+    systolic_fraction: 0.34
+    second_harmonic_fraction: 0.08
+    phase_s: 0.0
+  vertebral:
+    systolic_fraction: 0.24
+    second_harmonic_fraction: 0.05
+    phase_s: 0.03
+
+rcr:
+  proximal_fraction: 0.05
+  total_compliance_cm3_per_barye: 1.0e-5

@@ -1,0 +1,489 @@
+{
+  "terminal_planes": [
+    {
+      "name": "left_anterior_cerebral_artery__distal",
+      "role": "outlet",
+      "vessel": "left_anterior_cerebral_artery",
+      "object_name": "Anterior cerebral artery.l",
+      "side": "L",
+      "vessel_type": "artery",
+      "center_cm": [
+        0.3967308,
+        -3.0093974,
+        161.9174361
+      ],
+      "normal": [
+        -0.4258367992123543,
+        -0.44172988186281936,
+        0.789644053929387
+      ],
+      "radius_cm": 0.1,
+      "source_radius_cm": 0.1,
+      "area_cm2": 0.031415926535897934,
+      "source_segment_id": "left_anterior_cerebral_artery_0",
+      "source_endpoint_index": 72,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "L_CCA_inlet",
+      "role": "inlet",
+      "vessel": "left_common_carotid_artery",
+      "object_name": "Left common carotid artery",
+      "side": "L",
+      "vessel_type": "artery",
+      "center_cm": [
+        1.6624723,
+        -0.3265663,
+        139.5761251
+      ],
+      "normal": [
+        0.014383919735064537,
+        0.14027298751638761,
+        -0.9900083796747796
+      ],
+      "radius_cm": 0.4,
+      "source_radius_cm": 0.4,
+      "area_cm2": 0.5026548245743669,
+      "source_segment_id": "left_common_carotid_artery_0",
+      "source_endpoint_index": 0,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "left_external_carotid_artery__branch__transverse_facial_artery_l__distal",
+      "role": "outlet",
+      "vessel": "left_external_carotid_artery__branch__transverse_facial_artery_l",
+      "object_name": "Transverse facial artery.l",
+      "side": "L",
+      "vessel_type": "artery",
+      "center_cm": [
+        5.0421415,
+        -5.7122682,
+        156.3234121
+      ],
+      "normal": [
+        -0.47977798813797884,
+        -0.8769057081302566,
+        0.029145516753808925
+      ],
+      "radius_cm": 0.05,
+      "source_radius_cm": 0.05,
+      "area_cm2": 0.007853981633974483,
+      "source_segment_id": "left_external_carotid_artery__branch__transverse_facial_artery_l_0",
+      "source_endpoint_index": 166,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "left_middle_cerebral_artery__distal",
+      "role": "outlet",
+      "vessel": "left_middle_cerebral_artery",
+      "object_name": "Middle cerebral artery (M1-segment).l",
+      "side": "L",
+      "vessel_type": "artery",
+      "center_cm": [
+        3.737703,
+        -1.8308731,
+        161.6224527
+      ],
+      "normal": [
+        0.6449887260888418,
+        0.4327837629161284,
+        0.6298315312640748
+      ],
+      "radius_cm": 0.14,
+      "source_radius_cm": 0.14,
+      "area_cm2": 0.06157521601035996,
+      "source_segment_id": "left_middle_cerebral_artery_0",
+      "source_endpoint_index": 120,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "left_posterior_cerebral_artery__distal",
+      "role": "outlet",
+      "vessel": "left_posterior_cerebral_artery",
+      "object_name": "Posterior cerebral artery.l",
+      "side": "L",
+      "vessel_type": "artery",
+      "center_cm": [
+        1.436379,
+        -0.358008,
+        160.2972112
+      ],
+      "normal": [
+        0.4549628709147228,
+        0.890451302125753,
+        0.01025985533933941
+      ],
+      "radius_cm": 0.09,
+      "source_radius_cm": 0.09,
+      "area_cm2": 0.025446900494077326,
+      "source_segment_id": "left_posterior_cerebral_artery_0",
+      "source_endpoint_index": 81,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "left_superficial_temporal_artery__distal",
+      "role": "outlet",
+      "vessel": "left_superficial_temporal_artery",
+      "object_name": "Superficial temporal artery.l",
+      "side": "L",
+      "vessel_type": "artery",
+      "center_cm": [
+        5.6974048,
+        -0.7506021,
+        167.0960979
+      ],
+      "normal": [
+        -0.505607189018582,
+        0.09185155628378702,
+        0.8578605143151038
+      ],
+      "radius_cm": 0.05,
+      "source_radius_cm": 0.05,
+      "area_cm2": 0.007853981633974483,
+      "source_segment_id": "left_superficial_temporal_artery_1",
+      "source_endpoint_index": 191,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "left_superficial_temporal_artery__distal_2",
+      "role": "outlet",
+      "vessel": "left_superficial_temporal_artery",
+      "object_name": "Superficial temporal artery.l",
+      "side": "L",
+      "vessel_type": "artery",
+      "center_cm": [
+        6.9830681,
+        3.6058682,
+        158.7781307
+      ],
+      "normal": [
+        -0.07673894345066765,
+        0.7353317907306214,
+        0.6733485665678459
+      ],
+      "radius_cm": 0.05,
+      "source_radius_cm": 0.05,
+      "area_cm2": 0.007853981633974483,
+      "source_segment_id": "left_superficial_temporal_artery_4",
+      "source_endpoint_index": 129,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "left_superficial_temporal_artery__distal_3",
+      "role": "outlet",
+      "vessel": "left_superficial_temporal_artery",
+      "object_name": "Superficial temporal artery.l",
+      "side": "L",
+      "vessel_type": "artery",
+      "center_cm": [
+        7.2506564,
+        2.3071634,
+        164.814935
+      ],
+      "normal": [
+        -0.08248817991943204,
+        0.5476634584673289,
+        0.8326226254631709
+      ],
+      "radius_cm": 0.0303417,
+      "source_radius_cm": 0.0303417,
+      "area_cm2": 0.002892209129685777,
+      "source_segment_id": "left_superficial_temporal_artery_7",
+      "source_endpoint_index": 192,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "left_superficial_temporal_artery__branch__frontal_branch_of_superficial_temporal_artery_l__distal",
+      "role": "outlet",
+      "vessel": "left_superficial_temporal_artery__branch__frontal_branch_of_superficial_temporal_artery_l",
+      "object_name": "Frontal branch of superficial temporal artery.l",
+      "side": "L",
+      "vessel_type": "artery",
+      "center_cm": [
+        4.1996459,
+        -7.2190877,
+        164.2975634
+      ],
+      "normal": [
+        -0.6487965523939575,
+        -0.7265995817501131,
+        -0.22608865827872798
+      ],
+      "radius_cm": 0.0293616,
+      "source_radius_cm": 0.0293616,
+      "area_cm2": 0.0027083781936393437,
+      "source_segment_id": "left_superficial_temporal_artery__branch__frontal_branch_of_superficial_temporal_artery_l_0",
+      "source_endpoint_index": 172,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "L_VA_inlet",
+      "role": "inlet",
+      "vessel": "left_vertebral_artery",
+      "object_name": "Vertebral artery.l",
+      "side": "L",
+      "vessel_type": "artery",
+      "center_cm": [
+        4.1099936,
+        0.1544447,
+        142.1102881
+      ],
+      "normal": [
+        0.5076565705606487,
+        -0.3622245516130787,
+        -0.781714897245348
+      ],
+      "radius_cm": 0.13,
+      "source_radius_cm": 0.13,
+      "area_cm2": 0.053092915845667506,
+      "source_segment_id": "left_vertebral_artery_0",
+      "source_endpoint_index": 0,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "right_anterior_cerebral_artery__distal",
+      "role": "outlet",
+      "vessel": "right_anterior_cerebral_artery",
+      "object_name": "Anterior cerebral artery.r",
+      "side": "R",
+      "vessel_type": "artery",
+      "center_cm": [
+        -0.3967308,
+        -3.0093974,
+        161.9174361
+      ],
+      "normal": [
+        0.4258367992123543,
+        -0.44172988186281936,
+        0.789644053929387
+      ],
+      "radius_cm": 0.1,
+      "source_radius_cm": 0.1,
+      "area_cm2": 0.031415926535897934,
+      "source_segment_id": "right_anterior_cerebral_artery_0",
+      "source_endpoint_index": 72,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "R_CCA_inlet",
+      "role": "inlet",
+      "vessel": "right_common_carotid_artery",
+      "object_name": "Right common carotid artery",
+      "side": "R",
+      "vessel_type": "artery",
+      "center_cm": [
+        -1.4798716,
+        -1.6159819,
+        141.2551165
+      ],
+      "normal": [
+        0.5196886612657776,
+        -0.07510761977928623,
+        -0.8510479074663623
+      ],
+      "radius_cm": 0.5,
+      "source_radius_cm": 0.5,
+      "area_cm2": 0.7853981633974483,
+      "source_segment_id": "right_common_carotid_artery_0",
+      "source_endpoint_index": 0,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "right_external_carotid_artery__branch__transverse_facial_artery_r__distal",
+      "role": "outlet",
+      "vessel": "right_external_carotid_artery__branch__transverse_facial_artery_r",
+      "object_name": "Transverse facial artery.r",
+      "side": "R",
+      "vessel_type": "artery",
+      "center_cm": [
+        -5.0421423,
+        -5.7122682,
+        156.3234241
+      ],
+      "normal": [
+        0.4797779881378874,
+        -0.8769057081303065,
+        0.029145516753810583
+      ],
+      "radius_cm": 0.05,
+      "source_radius_cm": 0.05,
+      "area_cm2": 0.007853981633974483,
+      "source_segment_id": "right_external_carotid_artery__branch__transverse_facial_artery_r_0",
+      "source_endpoint_index": 166,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "right_middle_cerebral_artery__distal",
+      "role": "outlet",
+      "vessel": "right_middle_cerebral_artery",
+      "object_name": "Middle cerebral artery (M1-segment).r",
+      "side": "R",
+      "vessel_type": "artery",
+      "center_cm": [
+        -3.737703,
+        -1.8308731,
+        161.6224527
+      ],
+      "normal": [
+        -0.6449887260888418,
+        0.4327837629161284,
+        0.6298315312640748
+      ],
+      "radius_cm": 0.14,
+      "source_radius_cm": 0.14,
+      "area_cm2": 0.06157521601035996,
+      "source_segment_id": "right_middle_cerebral_artery_0",
+      "source_endpoint_index": 120,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "right_posterior_cerebral_artery__distal",
+      "role": "outlet",
+      "vessel": "right_posterior_cerebral_artery",
+      "object_name": "Posterior cerebral artery.r",
+      "side": "R",
+      "vessel_type": "artery",
+      "center_cm": [
+        -1.436379,
+        -0.358008,
+        160.2972112
+      ],
+      "normal": [
+        -0.4549628709147228,
+        0.890451302125753,
+        0.01025985533933941
+      ],
+      "radius_cm": 0.09,
+      "source_radius_cm": 0.09,
+      "area_cm2": 0.025446900494077326,
+      "source_segment_id": "right_posterior_cerebral_artery_0",
+      "source_endpoint_index": 81,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "right_superficial_temporal_artery__distal",
+      "role": "outlet",
+      "vessel": "right_superficial_temporal_artery",
+      "object_name": "Superficial temporal artery.r",
+      "side": "R",
+      "vessel_type": "artery",
+      "center_cm": [
+        -5.6974048,
+        -0.7506021,
+        167.0960979
+      ],
+      "normal": [
+        0.505607189018582,
+        0.09185155628378702,
+        0.8578605143151038
+      ],
+      "radius_cm": 0.05,
+      "source_radius_cm": 0.05,
+      "area_cm2": 0.007853981633974483,
+      "source_segment_id": "right_superficial_temporal_artery_1",
+      "source_endpoint_index": 191,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "right_superficial_temporal_artery__distal_2",
+      "role": "outlet",
+      "vessel": "right_superficial_temporal_artery",
+      "object_name": "Superficial temporal artery.r",
+      "side": "R",
+      "vessel_type": "artery",
+      "center_cm": [
+        -6.9830681,
+        3.6058682,
+        158.7781307
+      ],
+      "normal": [
+        0.07673894345066765,
+        0.7353317907306214,
+        0.6733485665678459
+      ],
+      "radius_cm": 0.05,
+      "source_radius_cm": 0.05,
+      "area_cm2": 0.007853981633974483,
+      "source_segment_id": "right_superficial_temporal_artery_4",
+      "source_endpoint_index": 129,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "right_superficial_temporal_artery__distal_3",
+      "role": "outlet",
+      "vessel": "right_superficial_temporal_artery",
+      "object_name": "Superficial temporal artery.r",
+      "side": "R",
+      "vessel_type": "artery",
+      "center_cm": [
+        -7.2506564,
+        2.3071634,
+        164.814935
+      ],
+      "normal": [
+        0.08248817991943204,
+        0.5476634584673289,
+        0.8326226254631709
+      ],
+      "radius_cm": 0.0303417,
+      "source_radius_cm": 0.0303417,
+      "area_cm2": 0.002892209129685777,
+      "source_segment_id": "right_superficial_temporal_artery_7",
+      "source_endpoint_index": 192,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "right_superficial_temporal_artery__branch__frontal_branch_of_superficial_temporal_artery_r__distal",
+      "role": "outlet",
+      "vessel": "right_superficial_temporal_artery__branch__frontal_branch_of_superficial_temporal_artery_r",
+      "object_name": "Frontal branch of superficial temporal artery.r",
+      "side": "R",
+      "vessel_type": "artery",
+      "center_cm": [
+        -4.1996459,
+        -7.2190878,
+        164.2975634
+      ],
+      "normal": [
+        0.6487523109519089,
+        -0.726643880182439,
+        -0.22607324129132852
+      ],
+      "radius_cm": 0.0293616,
+      "source_radius_cm": 0.0293616,
+      "area_cm2": 0.0027083781936393437,
+      "source_segment_id": "right_superficial_temporal_artery__branch__frontal_branch_of_superficial_temporal_artery_r_0",
+      "source_endpoint_index": 172,
+      "status": "auto_contact_filtered"
+    },
+    {
+      "name": "R_VA_inlet",
+      "role": "inlet",
+      "vessel": "right_vertebral_artery",
+      "object_name": "Vertebral artery.r",
+      "side": "R",
+      "vessel_type": "artery",
+      "center_cm": [
+        -4.1099936,
+        0.1544447,
+        142.1102881
+      ],
+      "normal": [
+        -0.5076565705606487,
+        -0.3622245516130787,
+        -0.781714897245348
+      ],
+      "radius_cm": 0.13,
+      "source_radius_cm": 0.13,
+      "area_cm2": 0.053092915845667506,
+      "source_segment_id": "right_vertebral_artery_0",
+      "source_endpoint_index": 0,
+      "status": "auto_contact_filtered"
+    }
+  ],
+  "parameters": {
+    "contact_extra_cm": 0.025,
+    "contact_radius_scale": 1.05,
+    "terminal_radius_floor_cm": 0.02
+  }
+}

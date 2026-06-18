@@ -1,0 +1,33 @@
+case:
+  name: sv50
+  model: cfd_v5_sv50
+  unit: cm
+  notes:
+    - Organized from cases/cfd_v5/sv50.
+    - Boundary names are short aliases; original names are preserved in face_labels.json.
+
+paths:
+  case_dir: case/sv50
+  source_root: case/sv50/source
+  source_mesh_case: case/sv50/source/sv50
+  svmultiphysics_executable: svmultiphysics
+  mpiexec: mpiexec
+  environment_overrides:
+    svmultiphysics_executable: SV_MULTIPHYSICS_BIN
+    mpiexec: MPIEXEC
+
+blood:
+  density_g_per_cm3: 1.06
+  viscosity_poise: 0.035
+
+solver:
+  wall: rigid
+  equation: fluid
+  time_step_s: 0.001
+  cardiac_cycle_s: 0.8
+  cycles_test: 2
+  cycles_production: 5
+  save_increment: 100
+  inlet_profile: Parabolic
+  outlet_bc: RCR
+  mpi_np_default: 8

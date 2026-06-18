@@ -1,0 +1,41 @@
+{
+  "case": "case/sv50",
+  "cardiac_cycle_s": 0.8,
+  "inlet_mean_flows_ml_min": {
+    "L_CCA_IN": 260.0,
+    "R_CCA_IN": 260.0,
+    "L_VA_IN": 50.0,
+    "R_VA_IN": 50.0
+  },
+  "outlet_target_flows_ml_min": {
+    "L_ACA_OUT": 65.0,
+    "R_ACA_OUT": 65.0,
+    "L_MCA_OUT": 170.0,
+    "R_MCA_OUT": 170.0,
+    "L_PCA_OUT": 55.0,
+    "R_PCA_OUT": 55.0,
+    "L_TFA_OUT": 5.0,
+    "R_TFA_OUT": 5.0,
+    "L_STA_OUT1": 5.0,
+    "R_STA_OUT1": 5.0,
+    "L_STA_OUT2": 4.0,
+    "R_STA_OUT2": 4.0,
+    "L_STA_OUT3": 2.0,
+    "R_STA_OUT3": 2.0,
+    "L_STA_FB_OUT": 4.0,
+    "R_STA_FB_OUT": 4.0
+  },
+  "inlet_total_ml_min": 620.0,
+  "outlet_total_ml_min": 620.0,
+  "pressure": {
+    "target_mean_mmHg": 90,
+    "venous_or_distal_mmHg": 10
+  },
+  "inlet_flow_files": {
+    "L_CCA_IN": "case/sv50/simulation_truth/inlet_L_CCA_IN.flow",
+    "R_CCA_IN": "case/sv50/simulation_truth/inlet_R_CCA_IN.flow",
+    "L_VA_IN": "case/sv50/simulation_truth/inlet_L_VA_IN.flow",
+    "R_VA_IN": "case/sv50/simulation_truth/inlet_R_VA_IN.flow"
+  },
+  "outlet_rcr_csv": "case/sv50/simulation_truth/outlet_rcr.csv"
+}

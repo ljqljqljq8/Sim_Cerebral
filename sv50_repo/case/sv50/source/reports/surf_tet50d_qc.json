@@ -1,0 +1,19 @@
+{
+  "source_surface": "cases/cfd_v5/geo/surf_tet50.vtp",
+  "method_used": "deduplicate_triangles",
+  "drop_all_duplicate_keys": true,
+  "removed_duplicate_triangles": 2,
+  "before": {
+    "point_count": 308406,
+    "cell_count": 616816,
+    "component_count": 1,
+    "boundary_or_nonmanifold_edge_cells": 1
+  },
+  "after": {
+    "point_count": 308405,
+    "cell_count": 616814,
+    "component_count": 1,
+    "boundary_or_nonmanifold_edge_cells": 0
+  },
+  "closed_single_component": true
+}
